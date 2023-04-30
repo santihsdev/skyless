@@ -20,10 +20,36 @@
 				tabindex="0"
 				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
-				<li><a>Item 1</a></li>
+			<li tabindex="0">
+				<a class="justify-between">
+					Find a doctor
+					<svg
+						class="fill-current"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg
+					>
+				</a>
+				<ul class="p-2 bg-accent-focus">
+					<h4>Search for a Doctor</h4>
+					<div class="flex w-full">
+						<div class="grid h-20 flex-grow card rounded-box place-items-center">
+							<div class="form-control">
+								<input type="text" placeholder="Search" class="input input-bordered" />
+							</div>
+						</div>
+						<div class="grid h-20 flex-grow card rounded-box place-items-center">
+							<button class="btn btn-outline text-white">Search</button>
+						</div>
+					</div>
+					<button class="btn btn-link text-white">View all doctors</button>
+				</ul>
+			</li>
 				<li tabindex="0">
 					<a class="justify-between">
-						Parent
+						About us
 						<svg
 							class="fill-current"
 							xmlns="http://www.w3.org/2000/svg"
@@ -33,12 +59,11 @@
 							><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg
 						>
 					</a>
-					<ul class="p-2">
-						<li><a>Submenu 1</a></li>
-						<li><a>Submenu 2</a></li>
+					<ul class="p-2 bg-accent-focus">
+						<li><a>Our mission</a></li>
+						<li><a>Frequent questions</a></li>
 					</ul>
 				</li>
-				<li><a>Item 3</a></li>
 			</ul>
 		</div>
 		<a href=""><img src="./src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
@@ -85,8 +110,8 @@
 					>
 				</a>
 				<ul class="p-2 bg-accent-focus flex-auto w-100">
-					<button class="btn btn-outline text-white">Our mission</button>
-					<button class="btn btn-outline text-white">Frequent questions</button>
+					<button class="btn btn-outline btn-wide text-white">Our mission</button>
+					<button class="btn btn-outline btn-wide text-white">Frequent questions</button>
 				</ul>
 			</li>
 		</ul>
