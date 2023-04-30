@@ -60,8 +60,8 @@
 						>
 					</a>
 					<ul class="p-2 bg-accent-focus">
-						<li><a>Our mission</a></li>
-						<li><a>Frequent questions</a></li>
+						<li><button class="btn btn-outline btn-wide text-white">Our mission</button></li>
+						<li><button class="btn btn-outline btn-wide text-white">Frequent questions</button></li>
 					</ul>
 				</li>
 			</ul>
