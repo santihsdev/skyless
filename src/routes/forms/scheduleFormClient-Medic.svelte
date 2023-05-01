@@ -1,7 +1,6 @@
 <script>
 	import { Client } from 'pg';
     
-	console.log('asd');
 	let dateValue;
 	let hourValue;
 	let descriptionValue;
