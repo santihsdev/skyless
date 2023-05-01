@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=password
+  keycloak:
+    image: bitnami/keycloak:21.0.2-debian-11-r8
+    container_name: keycloak-container
+    environment:
+      - KEYCLOAK_DATABASE_HOST=postgres
+      - KEYCLOAK_DATABASE_VENDOR=postgresql
+      - KEYCLOAK_DATABASE_NAME=keycloak
+      - KEYCLOAK_DATABASE_USER=keycloak
+      - KEYCLOAK_DATABASE_PASSWORD=password
+      - KEYCLOAK_ADMIN_USER=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+volumes:
+  postgres_data:
