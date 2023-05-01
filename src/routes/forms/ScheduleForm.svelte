@@ -26,7 +26,7 @@
 
 <div>
     <form on:submit={handleSubmit}>
-        <h1 class="title">Book Medical Appointment</h1>
+        <h1 class="title">Schedule an appointment</h1>
         <div class="form-control">
             <label class="label">Fecha:</label>
             <input class="input" type="date" name="fecha" required>
@@ -45,7 +45,6 @@
 
 <style>
     form {
-        max-width: 400px;
         margin: 0 auto;
         padding: 2rem;
         background-color: #ffffff;
@@ -69,7 +68,7 @@
     }
     input[type=date],
     input[type=time] {
-        width: 100%;
+        width: 40%;
         padding: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 0.25rem;
@@ -78,6 +77,7 @@
         background-color: #fff;
         color: #000;
     }
+
     input[type=date]::-webkit-calendar-picker-indicator,
     input[type=time]::-webkit-calendar-picker-indicator {
         background-color: #79ccd1;
@@ -95,16 +95,18 @@
         font-size: 1rem;
         line-height: 1.5;
         background-color: rgba(231, 231, 231, 0.54);
-
     }
+
     .textarea {
         resize: vertical;
         background-color: white;
     }
+
     .btn {
         background-color: #79ccd1;
         color: #fff;
     }
+
     .btn2 {
         display: block;
         margin-top: 1.5rem;
@@ -115,7 +117,7 @@
         padding: 0.5rem 1rem;
         font-size: 1rem;
         cursor: pointer;
-        margin-left: 13.5rem;
+        margin-left: 90%;
     }
 </style>
 
