@@ -1,4 +1,4 @@
-import {client} from "$lib/database/connector.js";
+import {client} from "$lib/database/connector";
 import { json } from '@sveltejs/kit';
 
 /** @type {import('./$types').RequestHandler} */

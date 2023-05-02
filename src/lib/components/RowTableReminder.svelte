@@ -1,5 +1,10 @@
 <script lang="ts">
 	let isDone: boolean = false;
+	export let idDoctor: number = 0;
+	export let idUser: number = 0;
+	export let date: string = '00/00/00';
+	export let hour: string = '00:00';
+	export let description: string = 'Default';
 </script>
 
 <tr class="hover" class:line-through={isDone}>
@@ -16,18 +21,18 @@
 				</div>
 			</div>
 			<div>
-				<div class="font-bold">Dr. Marcus Ryan</div>
+				<div class="font-bold">{idDoctor} Dr. Marcus Ryan</div>
 				<div class="text-sm opacity-50">Oncologist</div>
 			</div>
 		</div>
 	</td>
 	<td>
-		{new Date()}
+		{hour}
 		<br />
-		<span class="badge badge-ghost badge-sm">13/03/2023</span>
+		<span class="badge badge-ghost badge-sm">{date}</span>
 	</td>
-	<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, minus.</td>
+	<td>{description}</td>
 	<th>
-		<button class="btn btn-ghost btn-xs">details</button>
+		<button class="btn btn-ghost btn-xs" disabled={isDone} >details</button>
 	</th>
 </tr>
