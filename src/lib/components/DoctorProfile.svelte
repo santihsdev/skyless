@@ -1,6 +1,33 @@
 <script>
-    import ScheduleForm from "../../routes/forms/ScheduleForm.svelte";
+    import Header from "./Header.svelte";
+    import Footer from "./Footer.svelte";
+
+    let fecha;
+    let hora;
+    let descripcion;
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fecha = formData.get('fecha');
+        hora = formData.get('hora');
+        descripcion = formData.get('descripcion');
+
+        if (fecha && hora && descripcion) {
+
+            console.log('Fecha:', fecha);
+            console.log('Hora:', hora);
+            console.log('Descripción:', descripcion);
+            closeModal();
+        }
+    }
+    function closeModal() {
+        const modalCheckbox = document.getElementById('my-modal-3');
+        modalCheckbox.checked = false;
+    }
 </script>
+
+<Header/>
 
 <div class="card lg:card-side bg-base-100 mb-4 px-40">
 	<figure>
@@ -29,7 +56,7 @@
 						d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
 					/>
 				</svg>
-				<a class="link link-hover link-info">212-395-3210</a>
+				<p>212-395-3210</p>
 			</div>
 		</div>
 	</div>
@@ -153,4 +180,101 @@
     </div>
 </div>
 
-<ScheduleForm/>
+<div>
+    <form on:submit={handleSubmit}>
+        <h1 class="title">Schedule an appointment</h1>
+        <div class="form-control">
+            <label class="label">Fecha:</label>
+            <input class="input" type="date" name="fecha" required>
+        </div>
+        <div class="form-control">
+            <label class="label">Hora:</label>
+            <input class="input" type="time" name="hora" required>
+        </div>
+        <div class="form-control">
+            <label class="label">Descripción:</label>
+            <textarea class="textarea" name="descripcion" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn2">Schedule</button>
+    </form>
+</div>
+
+<style>
+    form {
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #ffffff;
+        color: black;
+        font-family: Arial,serif;
+    }
+    .form-control {
+        margin-bottom: 1rem;
+    }
+    .label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    .title{
+        display: block;
+        font-weight: bold;
+        font-size: 1.6rem;
+        margin: auto;
+        text-align: center;
+    }
+    input[type=date],
+    input[type=time] {
+        width: 40%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-color: #fff;
+        color: #000;
+    }
+
+    input[type=date]::-webkit-calendar-picker-indicator,
+    input[type=time]::-webkit-calendar-picker-indicator {
+        background-color: #79ccd1;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.25rem;
+    }
+
+    .textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #cccccc;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        background-color: rgba(231, 231, 231, 0.54);
+    }
+
+    .textarea {
+        resize: vertical;
+        background-color: white;
+    }
+
+    .btn {
+        background-color: #79ccd1;
+        color: #fff;
+    }
+
+    .btn2 {
+        display: block;
+        margin-top: 1.5rem;
+        background-color: #79ccd1;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: 90%;
+    }
+</style>
+
+<Footer/>
