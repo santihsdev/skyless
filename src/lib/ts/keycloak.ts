@@ -17,6 +17,8 @@ export class Auth {
 		console.log(resp);
 
 		console.log(this.client.tokenParsed);
+		console.log(this.client.idToken);
+
 		console.log(this.client.subject);
 	}
 

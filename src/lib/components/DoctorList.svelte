@@ -1,8 +1,15 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import DoctorCard from './DoctorCard.svelte';
+	import type { Doctor } from '../../routes/api/doctors/+server';
 
 	export let speciality: string = 'Default';
 	export let isOpen: boolean = false;
+	let doctors: Doctor[] = [];
+	onMount(async () => {
+		let resp = await fetch('/api/doctors');
+		doctors = await resp.json();
+	});
 </script>
 
 <div class="container mx-auto p-2">
@@ -13,9 +20,10 @@
 			<h1 class="text-4xl font-bold">{speciality}</h1>
 		</div>
 		<div class="collapse-content">
-			<DoctorCard />
-			<DoctorCard />
-			<DoctorCard />
+			<!-- <DoctorCard /> -->
+			{#each doctors as { id, name, lastName, cellphone, speciality } (id)}
+				<DoctorCard {name} {lastName} {cellphone} {speciality} {id} />
+			{/each}
 		</div>
 	</div>
 </div>
