@@ -1,3 +1,7 @@
+<script>
+	import ScheduleFormClientMedic from "$lib/components/ScheduleFormClientMedic.svelte";
+</script>
+
 <div class="card lg:card-side bg-base-100 shadow-xl mb-4">
 	<figure>
 		<div class="avatar">
@@ -15,6 +19,10 @@
 			<a class="link link-hover link-info">More specialities</a>
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" /> 212-395-3210</a>
+			<br/>
+			<ScheduleFormClientMedic></ScheduleFormClientMedic>
+
 		</div>
 	</div>
+
 </div>
