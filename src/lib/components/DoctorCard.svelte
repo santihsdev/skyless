@@ -16,7 +16,7 @@
 			<b>Specialities:</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, reiciendis!
 		</p>
 		<div>
-			<a class="link link-hover link-info">More specialities</a>
+			<a class="link link-hover link-info">More information</a>
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" /> 212-395-3210</a>
 			<br/>
