@@ -54,7 +54,7 @@
 								</button>
 							</div>
 						</div>
-						<button class="btn btn-link text-white">View all doctors</button>
+						<a href="/doctor-list"><button class="btn btn-link text-white">View all doctors</button></a>
 					</ul>
 				</li>
 				<li tabindex="0">
@@ -76,7 +76,7 @@
 				</li>
 			</ul>
 		</div>
-		<a href=""><img src="./src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
+		<a href="/patient/[id]"><img src="src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal">
@@ -114,7 +114,7 @@
 							</button>
 						</div>
 					</div>
-					<button class="btn btn-link text-white">View all doctors</button>
+					<a href="/doctor-list"><button class="btn btn-link text-white">View all doctors</button></a>
 				</ul>
 			</li>
 			<li tabindex="0">

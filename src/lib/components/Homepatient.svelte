@@ -55,7 +55,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/medicinageneral.png" alt="Shoes" />
+						<img src="src/lib/images/especialidades/medicinageneral.png" alt="Shoes" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">General Medicine</h2>

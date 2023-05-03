@@ -1,7 +1,4 @@
 <script>
-    import Header from "./Header.svelte";
-    import Footer from "./Footer.svelte";
-
     let fecha;
     let hora;
     let descripcion;
@@ -26,8 +23,6 @@
         modalCheckbox.checked = false;
     }
 </script>
-
-<Header/>
 
 <div class="card lg:card-side bg-base-100 mb-4 px-40">
 	<figure>
@@ -277,4 +272,3 @@
     }
 </style>
 
-<Footer/>
