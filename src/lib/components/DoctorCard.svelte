@@ -1,5 +1,11 @@
-<script>
-	import ScheduleFormClientMedic from "$lib/components/ScheduleFormClientMedic.svelte";
+<script lang="ts">
+	import ScheduleFormClientMedic from '$lib/components/ScheduleFormClientMedic.svelte';
+
+	export let id: string = '';
+	export let name: string = 'Default';
+	export let lastName: string = 'Default';
+	export let speciality: string = 'Speciality';
+	export let cellphone: string = '000000000';
 </script>
 
 <div class="card lg:card-side bg-base-100 shadow-xl mb-4">
@@ -11,18 +17,17 @@
 		</div>
 	</figure>
 	<div class="card-body">
-		<h2 class="card-title">Fady Khoury-Collado, MDS</h2>
+		<h2 class="card-title">Dr. {name} {lastName}</h2>
 		<p>
-			<b>Specialities:</b> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, reiciendis!
+			<b>Specialities:</b>
+			{speciality}
 		</p>
 		<div>
 			<a class="link link-hover link-info">More information</a>
 			<br />
-			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" /> 212-395-3210</a>
-			<br/>
-			<ScheduleFormClientMedic></ScheduleFormClientMedic>
-
+			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
+			<br />
+			<ScheduleFormClientMedic />
 		</div>
 	</div>
-
 </div>
