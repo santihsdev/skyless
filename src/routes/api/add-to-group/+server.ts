@@ -17,7 +17,6 @@ const getGroupId = async (group: string, token: string): Promise<number> => {
 /** @type {import('./$types').RequestHandler} */
 export const POST = async ({ request }) => {
 	const { token, idUser, groupName } = await request.json();
-	console.log(token);
 
 	const groupId = await getGroupId(groupName, token);
 
