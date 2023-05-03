@@ -137,7 +137,7 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a class="btn btn-ghost">
+		<a class="btn btn-ghost" href="/login">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="25"

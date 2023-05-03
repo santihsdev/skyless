@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
 	<title>Sign Up Page Form</title>
 	<style>
@@ -158,4 +156,3 @@
 		</div>
 	</form>
 </body>
-</html>
