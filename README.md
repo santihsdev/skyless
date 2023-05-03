@@ -1,38 +1,89 @@
-# create-svelte
+# Skyless Medical Appointment Management Platform
+![Logo](src/lib/images/MedicalCheckLogo.png)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The platform allows users to schedule appointments with doctors, dentists or other healthcare professionals, as well as receive appointment reminders, reschedule appointments, control and avoid appointment scheduling conflicts.
 
-## Creating a project
+The platform has an authentication module that is available to all users, there are at least two types of users (patients and doctors). Users must authenticate to use the platform.
 
-If you're seeing this, you've probably already done this step. Congrats!
+The platform includes features such as patient registration, doctor registration. The platform also has appointment reminders for patient and doctor notifications, billing and payments, online communication.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Appendix
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+For the project the following APIs were used:
+ - DaisyUI
+ - PG npm
 
-## Developing
+Tools:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+ - PostgreSQL
+ - Keycloack
 
-```bash
-npm run dev
+## Deployment
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+To deploy this project run
 
 ```bash
-npm run build
+  npm install
+  sudo docker-compose up 
 ```
 
-You can preview the production build with `npm run preview`.
+## Environment Variables
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+To run this project, you will need to add the following environment variables to your .env file
+
+`docker`
+`postgres`
+`keycloack`
+
+
+## Authors
+
+- [@santihsdev](https://github.com/santihsdev)
+- [@gabrielagonzalesv7](https://github.com/gabrielagonzalesv7)
+- [@agonzalesb107](https://github.com/agonzalesb107)
+- [@AlejandroEspinozaT](https://github.com/AlejandroEspinozaT)
+- [@MariaReneH](https://github.com/MariaReneH)
+- [@cris]()
+
+
+
+##  Features
+
+- [ ] Módulo de registro e inicio de sesión
+    - [x] Tarea: Implementar formulario de registro (usuarios, profesionales de salud)
+    - [ ] Tarea: Implementar formulario de inicio de sesión
+- [x]  Módulo de registro de citas
+    - [x] Tarea: Implementar una página de vista de todos los profesionales de salud registrados
+    - [x] Tarea: Implementar  una  página  para  un  profesional  de  la  salud  con  su  información  básica
+- [ ]  Módulo de programación de citas
+    - [ ]  Tarea: Implementar función para buscar y programar citas con profesionales de la salud
+    - [ ]  Tarea: Permitir a los usuarios cancelar o reprogramar citas existentes
+- [ ] Módulo de recordatorios
+    - [ ] Tarea: Implementar función para enviar recordatorios de citas por correo electrónico o SMS
+    - [ ] Tarea: Permitir a los usuarios configurar sus preferencias de recordatorios
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git https://github.com/santihsdev/skyless
+```
+
+
+
+Install dependencies
+
+```bash
+  npm install
+```
+Start the services
+
+```bash
+  sudo docker-compose up
+```
+Start the page
+
+```bash
+  npm run dev
+```
