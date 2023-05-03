@@ -1,4 +1,4 @@
-import { json } from '@sveltejs/kit';
+import { error, json } from '@sveltejs/kit';
 
 const getGroupId = async (group: string, token: string): Promise<number> => {
 	const resp = await fetch(`http://0.0.0.0:8080/admin/realms/test/groups?search=${group}`, {
@@ -17,21 +17,24 @@ const getGroupId = async (group: string, token: string): Promise<number> => {
 /** @type {import('./$types').RequestHandler} */
 export const POST = async ({ request }) => {
 	const { token, idUser, groupName } = await request.json();
+	console.log(token);
 
 	const groupId = await getGroupId(groupName, token);
+
 	const resp = await fetch(
 		`http://0.0.0.0:8080/admin/realms/test/users/${idUser}/groups/${groupId}`,
 		{
 			method: 'PUT',
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${token}`
 			}
 		}
 	);
-	const result = await resp.json();
-
-	console.log(result);
-
-	return json({ hello: 'world' });
+	// const result = await resp.json();
+	
+	if (resp.status == 204){
+		return json({ hello: 'world' });
+	}
+	throw error(401, "Unauthorized")
 };
