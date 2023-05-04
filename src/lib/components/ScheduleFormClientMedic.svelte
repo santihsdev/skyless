@@ -3,8 +3,8 @@
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const id_doctor = 1;
-		const id_user = 2;
+		const id_doctor = "1";
+		const id_user = "2";
 
 		formData.append("id_doctor", id_doctor);
 		formData.append("id_user", id_user);
