@@ -1,8 +1,7 @@
-import { client } from '$lib/database/connector';
-import { json } from '@sveltejs/kit';
+import { json, error } from '@sveltejs/kit';
 
 export type Client = {
-	email: string;
+	email?: string;
 	firstName: string;
 	lastName: string;
 	username?: string;
@@ -14,6 +13,7 @@ export async function POST({ request }) {
 
 	const userValues: Client = client;
 
+	('http://0.0.0.0:8080/admin/realms/test/users/5a2ddc0c-c5af-447c-8b06-de8e30cf97ca');
 	const resp = await fetch(`http://0.0.0.0:8080/admin/realms/test/users/${idUser}`, {
 		method: 'PUT',
 		headers: {
@@ -28,4 +28,5 @@ export async function POST({ request }) {
 	if (resp.status == 204) {
 		return json({ ok: resp.status });
 	}
+	throw error(resp.status, 'Error');
 }

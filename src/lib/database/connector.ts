@@ -16,6 +16,7 @@ client.connect((err) => {
 });
 
 interface Reminder {
+	id_appointment: number;
 	date: string;
 	hour: string;
 	description: string;
