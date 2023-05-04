@@ -1,7 +1,7 @@
 <div class="sm:flex">
 	<div>
 		<ul class="menu bg-base-100 w-56 p-2 rounded-box">
-			<li>
+			<li class="disabled">
 				<a>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
