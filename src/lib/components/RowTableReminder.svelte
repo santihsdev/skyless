@@ -1,11 +1,38 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	let isDone: boolean = false;
-	export let idDoctor: number = 0;
-	export let idUser: number = 0;
+	export let idDoctor: string = '0';
+	export let idUser: string = '0';
 	export let date: string = '00/00/00';
 	export let hour: string = '00:00';
 	export let description: string = 'Default';
+	export let id_appointment: number = 0;
+
+	let nameDoctor: string;
+	let speciality: string;
+
+	async function deleteAppointment(id_appointment: number) {
+		const response = await fetch('/api/appoinments/delete', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				id_appointment: id_appointment
+			})
+		});
+
+		return response.json();
+	}
+
+	onMount(async () => {
+		const resp = await fetch(`api/doctors/read?id=${idDoctor}`);
+		const js = await resp.json();
+		nameDoctor = js.name;
+		speciality = js.speciality;
+
+
+	});
 </script>
 
 <tr class="hover" class:line-through={isDone}>
@@ -35,18 +62,18 @@
 	<td>{description}</td>
 	<th>
 		<button class="my-button">Edit</button>
-		<button class="delete-btn" on:click={() => deleteAppointment(idDoctor)}>
+		<button class="delete-btn" on:click={() => deleteAppointment(id_appointment)}>
 			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="icon icon-tabler icon-tabler-trash"
-				width="19"
-				height="19"
-				viewBox="0 0 24 24"
-				stroke-width="5.5"
-				stroke="#2c3e50"
-				fill="none"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-trash"
+					width="19"
+					height="19"
+					viewBox="0 0 24 24"
+					stroke-width="5.5"
+					stroke="#2c3e50"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" />
 				<line x1="4" y1="7" x2="20" y2="7" />
@@ -76,7 +103,6 @@
 	.my-button:hover {
 		background-color: #2ca2d8;
 	}
-
 	.my-button:focus {
 		outline: none;
 		box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.6);
@@ -85,7 +111,6 @@
 	.delete-btn {
 		background-color: #e74c3c;
 		color: white;
-
 		border: none;
 		border-radius: 2px;
 		padding: 8px 12px;
@@ -96,5 +121,4 @@
 	.delete-btn:hover {
 		background-color: #c0392b;
 	}
-
 </style>

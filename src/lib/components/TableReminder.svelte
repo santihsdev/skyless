@@ -15,18 +15,18 @@
 		<table class="table w-full">
 			<!-- head -->
 			<thead>
-				<tr>
-					<th />
-					<th>Doctor</th>
-					<th>Date</th>
-					<th>Description</th>
-					<th />
-				</tr>
+			<tr>
+				<th />
+				<th>Doctor</th>
+				<th>Date</th>
+				<th>Description</th>
+				<th />
+			</tr>
 			</thead>
 			<tbody>
-				{#each reminders as { date, description, id_doctor, id_user, hour, id_appointment } (id_appointment)}
-					<RowTableReservation {date} {description} {hour} idDoctor={id_doctor} idUser={id_user} />
-				{/each}
+			{#each reminders as { date, description, id_doctor, id_user, hour, id_appointment } (id_appointment)}
+				<RowTableReservation {id_appointment} {date} {description} {hour} idDoctor={id_doctor} idUser={id_user} />
+			{/each}
 			</tbody>
 		</table>
 	</div>

@@ -3,7 +3,7 @@ import { error, json } from '@sveltejs/kit';
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url }) {
-	const id = url.searchParams.get('id-doctor') ?? '0';
+	const id = url.searchParams.get('id') ?? '0';
 
 	const result = await client.query(
 		'SELECT id, name, first_name, last_name, cellphone, speciality, email FROM public.doctor where id=$1;',
