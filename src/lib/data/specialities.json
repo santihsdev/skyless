@@ -1,0 +1,47 @@
+[
+    {
+		"Speciality": "General Medicine",
+		"Description": "It is involved in the prevention, diagnosis, and treatment of a wide range of both acute and chronic diseases affecting different parts of the body.",
+        "Path": "medicinageneral"
+	},
+	{
+		"Speciality": "Pediatrics",
+		"Description": "It is the branch of medicine concerned with the physical, mental, and social health of infants, children, and adolescents from birth up to the age of 18.",
+        "Path": "pediatria"
+	},
+	{
+		"Speciality": "Dentistry",
+		"Description": "It focused on the teeth, gums, and mouth. It consists of the study, diagnosis, prevention, management, and treatment of diseases, disorders, and conditions of the mouth",
+        "Path": "odontologia"
+	},
+	{
+		"Speciality": "Urology",
+		"Description": "It specializing in conditions that affect the urinary tract in men, women and children, and diseases that affect the reproductive system.",
+        "Path": "urologia"
+	},
+	{
+		"Speciality": "Gynecology and Obstetrics",
+		"Description": "Obstetrics deals with pregnancy and its associated procedures and complications, gynaecology involves treating women who are not pregnant.",
+        "Path": "obstetriciayginecologia"
+	},
+	{
+		"Speciality": "Ophthalmology",
+		"Description": "It's the specialized field of medicine that focuses on the health of the eye. It includes the anatomy, physiology and diseases that may affect the eye.",
+        "Path": "oftalmologia"
+	},
+	{
+		"Speciality": "Orthopedic surgery and Traumatology",
+		"Description": "Orthopedics deals with the study and treatment of abnormalities of the locomotor system, both of congenital or infectious origin or due to sequelae after trauma.",
+        "Path": "traumatologia"
+	},
+	{
+		"Speciality": "Otorhinolaryngology",
+		"Description": "Ear, nose and throat (ENT) surgeons diagnose, evaluate and manage diseases of the head and neck.",
+        "Path": "otorrinolaringologia"
+	},
+	{
+		"Speciality": "Plastic surgery",
+		"Description": "It's a surgical specialty involving the restoration, reconstruction or alteration of the human body. It can be divided into two main categories: reconstructive surgery and cosmetic surgery.",
+        "Path": "cirugiaplastica"
+	}
+]
