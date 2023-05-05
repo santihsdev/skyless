@@ -1,16 +1,16 @@
 <script>
 	import {onMount} from "svelte";
+	export let id = '';
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const id_doctor = "1";
 		const id_user = "2";
 
-		formData.append("id_doctor", id_doctor);
+		formData.append("id_doctor", id);
 		formData.append("id_user", id_user);
+
 		const result = await fetch("api/appoinments/create", {method: "POST", body: formData});
 		console.log(await result.json());
-
 	}
 	let forms = [];
 	onMount(async () => {
