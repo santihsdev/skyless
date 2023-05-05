@@ -11,7 +11,7 @@ export type Doctor = {
 };
 
 /** @type {import('./$types').RequestHandler} */
-export const GET = async ({ url: URL }) => {
+export const GET = async ({ url }) => {
 	const result = await client.query('SELECT * FROM doctor');
 
 	let doctors = result.rows.map(({ id, first_name, last_name, cellphone, speciality, email }) => ({
