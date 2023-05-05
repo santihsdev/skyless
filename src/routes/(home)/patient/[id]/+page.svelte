@@ -1,17 +1,18 @@
 <script lang="ts">
-	import Homepatient from "$lib/components/Homepatient.svelte";
-	import Register from "$lib/components/Register.svelte";
-	import { masterKey } from "$lib/stores/store";
+	import Homepatient from '$lib/components/Homepatient.svelte';
+	import Register from '$lib/components/Register.svelte';
+	import { authToken, masterKey } from '$lib/stores/store';
+	import type { Auth } from '$lib/ts/keycloak';
 
-	let token ="patient"
-	let key:string;
-	masterKey.subscribe((value: string) => key = value);
+	let token = 'patient';
+	let key: string | undefined;
+	masterKey.subscribe((value: string) => (key = value));
+	authToken.subscribe((value: Auth) => {
+		key = value.getClient().token;
+	});
 </script>
-<h1>home paciente</h1>
 
-<h1>{key}</h1>
-{#if token !== "Not found"}
-	<Homepatient/>
-	<Register/>
+{#if token !== undefined}
+	<Homepatient />
+	<Register />
 {/if}
-
