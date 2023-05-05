@@ -50,7 +50,6 @@
 </script>
 
 <main>
-	<div class="close-btn">&times;</div>
 	<div class="form">
 		<header>Register Form</header>
 		<div class="form-element">

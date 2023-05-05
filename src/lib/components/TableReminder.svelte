@@ -5,7 +5,7 @@
 
 	let reminders: Reminder[] = [];
 	onMount(async () => {
-		reminders = await fetch('api/appoinments/get-all').then((item) => item.json());
+		reminders = await fetch('/api/appoinments/get-all').then((item) => item.json());
 		console.log(reminders);
 	});
 </script>

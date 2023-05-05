@@ -4,6 +4,5 @@
 </script>
 
 <div class="sm:flex">
-	<MenuLeftReservation />
 	<TableReminder/>
 </div>

@@ -26,12 +26,10 @@
 	}
 
 	onMount(async () => {
-		const resp = await fetch(`api/doctors/read?id=${idDoctor}`);
+		const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
 		const js = await resp.json();
 		nameDoctor = js.name;
 		speciality = js.speciality;
-
-
 	});
 </script>
 
@@ -49,7 +47,7 @@
 				</div>
 			</div>
 			<div>
-				<div class="font-bold">{idDoctor} {nameDoctor}</div>
+				<div class="font-bold">{nameDoctor}</div>
 				<div class="text-sm opacity-50">{speciality}</div>
 			</div>
 		</div>
@@ -64,16 +62,16 @@
 		<button class="my-button">Edit</button>
 		<button class="delete-btn" on:click={() => deleteAppointment(id_appointment)}>
 			<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-trash"
-					width="19"
-					height="19"
-					viewBox="0 0 24 24"
-					stroke-width="5.5"
-					stroke="#2c3e50"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+				xmlns="http://www.w3.org/2000/svg"
+				class="icon icon-tabler icon-tabler-trash"
+				width="19"
+				height="19"
+				viewBox="0 0 24 24"
+				stroke-width="5.5"
+				stroke="#2c3e50"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" />
 				<line x1="4" y1="7" x2="20" y2="7" />

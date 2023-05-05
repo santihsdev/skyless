@@ -11,6 +11,7 @@
 	import cirugiaplastica from '$lib/images/especialidades/cirugiaplastica.png';
 
 	import specialities from '$lib/data/specialities.json';
+	import Register from './Register.svelte';
 
 	const items = [
 		medicinageneral,
@@ -52,4 +53,14 @@
 			</div>
 		</div>
 	{/each}
+	<!-- The button to open modal -->
+	<label for="my-modal" class="btn">open modal</label>
+
+	<!-- Put this part before </body> tag -->
+	<input type="checkbox" id="my-modal" class="modal-toggle" />
+	<div class="modal">
+		<div class="modal-box">
+			<Register />
+		</div>
+	</div>
 </div>
