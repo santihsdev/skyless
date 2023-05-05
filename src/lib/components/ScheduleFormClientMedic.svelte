@@ -40,7 +40,7 @@
 				<textarea class="textarea" name="description" rows="4" />
 			</div>
 
-			<button type="submit" class="btn2">Schedule</button>
+			<button type="submit" class="btn2" onclick="document.querySelector('.modal-toggle').checked = false;">Schedule</button>
 		</form>
 	</div>
 </div>
