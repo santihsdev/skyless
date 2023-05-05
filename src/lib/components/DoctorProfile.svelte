@@ -1,4 +1,10 @@
 <script>
+	import BagIcon from "../../icons/BagIcon.svelte";
+    import CardIcon from "../../icons/CardIcon.svelte";
+	import ClockIcon from "../../icons/ClockIcon.svelte";
+	import HatIcon from "../../icons/HatIcon.svelte";
+    import PhoneIcon from "../../icons/PhoneIcon.svelte";
+
     let fecha;
     let hora;
     let descripcion;
@@ -24,7 +30,7 @@
     }
 </script>
 
-<div class="card lg:card-side bg-base-100 mb-4 px-40">
+<div class="card lg:card-side bg-base-100 mb-4 pt-12 pb-0 pl-20 sm:ml-64">
 	<figure>
 		<div class="avatar">
 			<div class="w-24 rounded">
@@ -39,41 +45,16 @@
 		</p>
 		<div>
 			<div class="sm:flex">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="16"
-					height="16"
-					fill="currentColor"
-					class="bi bi-telephone"
-					viewBox="0 0 16 16"
-				>
-					<path
-						d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
-					/>
-				</svg>
+				<PhoneIcon/>
 				<p>212-395-3210</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="px-5 py-8">
+<div class="px-5 pb-6 pl-72">
 	<div class="sm:flex">
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="30"
-			height="30"
-			fill="currentColor"
-			class="bi bi-person-vcard"
-			viewBox="0 0 16 16"
-		>
-			<path
-				d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z"
-			/>
-			<path
-				d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z"
-			/></svg
-		>
+		<CardIcon/>
 		<h3 class="px-5 text-2xl font-bold">About Fady Khoury-Collado</h3>
 	</div>
 	<p>
@@ -85,25 +66,12 @@
 	</p>
 </div>
 
-<div class="sm:flex justify-center items-center">
+<div class="sm:flex pl-72">
     <div class="stats stats-vertical lg:stats-horizontal shadow">
-        <div class="stat w-96">
+        <div class="stat w-80">
             <div>
                 <div class="sm:flex justify-center">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="50"
-                        height="50"
-                        fill="currentColor"
-                        class="bi bi-mortarboard"
-                        viewBox="0 0 16 16"
-                    >
-                        <path
-                            d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"
-                        />
-                        <path
-                            d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"
-                        /></svg>
+                    <HatIcon/>
                 </div>
                 <h3 class="px-5 text-xl font-bold text-center py-5">Education</h3>
                 <p class="text-base">Fellowship: Memorial Sloan-Kettering Cancer Center</p>
@@ -116,7 +84,7 @@
         <div class="stat w-72">
             <div>
                     <div class="sm:flex justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/> <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/></svg>
+                        <BagIcon/>
                     </div>
                     <h3 class="text-xl font-bold py-5 text-center">Board certifications</h3>
                     <p class="text-base">Ginecologic Oncology</p>
@@ -126,16 +94,7 @@
     
         <div class="stat">
             <div class="sm:flex justify-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="50"
-                    height="50"
-                    fill="currentColor"
-                    class="bi bi-clock"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-                    /> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" /></svg>
+                <ClockIcon/>
             </div>
             <h3 class="px-5 py-5 text-xl font-bold text-center">Doctor Office Hours</h3>
             <div class="overflow-x-auto">
@@ -175,7 +134,7 @@
     </div>
 </div>
 
-<div>
+<div class="pl-64">
     <form on:submit={handleSubmit}>
         <h1 class="title">Schedule an appointment</h1>
         <div class="form-control">
