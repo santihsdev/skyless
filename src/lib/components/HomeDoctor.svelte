@@ -1,9 +1,7 @@
-<div class="sm:flex" style="position: relative; z-index: 5;">
+<div class="p-10 sm:ml-64">
 	<div class="overflow-x-auto w-full ">
 		<table class="table w-full">
-			<!-- head DELETE-->
 			<tbody>
-				<!-- row 1 -->
 				<tr>
 					<th>
 						<div class="font-bold">8:00 <br /> 9:00</div>
@@ -30,7 +28,6 @@
                         </label>
 					</th>
 				</tr>
-				<!-- row 2 -->
 				<tr>
 					<th>
 						<div class="font-bold">9:00 <br /> 10:00</div>
@@ -54,7 +51,6 @@
                         </label>
 					</th>
 				</tr>
-				<!-- row 3 -->
 				<tr>
 					<th>
 						<div class="font-bold">10:00 <br /> 11:00</div>
@@ -78,7 +74,6 @@
                         </label>
 					</th>
 				</tr>
-				<!-- row 4 -->
 				<tr>
 					<th>
 						<div class="font-bold">11:00 <br /> 12:00</div>
@@ -103,7 +98,6 @@
 					</th>
 				</tr>
 			</tbody>
-			<!-- foot -->
 		</table>
 	</div>
 </div>

@@ -6,11 +6,12 @@
 	import WhatsappIcon from "../../icons/WhatsappIcon.svelte";
     import MessageIcon from "../../icons/MessageIcon.svelte";
 	import MapIcon from "../../icons/MapIcon.svelte";
-
+	import MedicalCheckLogo from "$lib/images/MedicalCheckLogo.png"; 
 </script>
-<footer class="footer p-10 bg-base-300 text-base-content">
+
+<footer class="footer sm:ml-64 p-10 w-auto bg-base-300 text-base-content">
 	<div>
-        <img src="./src/lib/images/MedicalCheckLogo.png" width="200px">
+        <img src={MedicalCheckLogo} width="200px">
 	</div>
 	<div>
 		<span class="footer-title">Contact us</span>
@@ -46,6 +47,5 @@
                 </a>
             </div>
         </div>
-        
 	</div>
 </footer>

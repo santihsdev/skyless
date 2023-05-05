@@ -4,10 +4,10 @@
 	import LoginIcon from "../../icons/LoginIcon.svelte";
 	import SearchIcon from "../../icons/SearchIcon.svelte";
 	import ListIcon from "../../icons/ListIcon.svelte";
-
+	import MedicalCheckLogo from "$lib/images/MedicalCheckLogo.png";
 </script>
 
-<div class="navbar bg-base-100" style="position: relative; z-index: 10;">
+<nav class="fixed top-0 z-59 w-full navbar bg-base-100">
 	<div class="navbar-start">
 		<div class="dropdown">
 			<label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -47,7 +47,7 @@
 				</li>
 			</ul>
 		</div>
-		<a href="/patient/[id]"><img src="src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
+		<a href="/patient/[id]"><img src={MedicalCheckLogo} width="200px" /></a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal">
@@ -87,4 +87,4 @@
 			&nbsp; Login
 		</a>
 	</div>
-</div>
+</nav>

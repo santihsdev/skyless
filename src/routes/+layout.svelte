@@ -1,11 +1,17 @@
 <script>
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-import '../app.postcss';
+	import SideMenu from "$lib/components/SideMenu.svelte";
+	import '../app.postcss';
 </script>
 
-<Header/>
+<header class="sticky top-0 z-50">
+	<Header/>
+</header>
 
+<SideMenu/>
 
 <slot />
-<Footer/>
+<footer>
+	<Footer/>
+</footer>

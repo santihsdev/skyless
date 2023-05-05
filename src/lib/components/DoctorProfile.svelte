@@ -30,7 +30,7 @@
     }
 </script>
 
-<div class="card lg:card-side bg-base-100 mb-4 px-40">
+<div class="card lg:card-side bg-base-100 mb-4 pt-12 pb-0 pl-20 sm:ml-64">
 	<figure>
 		<div class="avatar">
 			<div class="w-24 rounded">
@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<div class="px-5 py-8">
+<div class="px-5 pb-6 pl-72">
 	<div class="sm:flex">
 		<CardIcon/>
 		<h3 class="px-5 text-2xl font-bold">About Fady Khoury-Collado</h3>
@@ -66,9 +66,9 @@
 	</p>
 </div>
 
-<div class="sm:flex justify-center items-center">
+<div class="sm:flex pl-72">
     <div class="stats stats-vertical lg:stats-horizontal shadow">
-        <div class="stat w-96">
+        <div class="stat w-80">
             <div>
                 <div class="sm:flex justify-center">
                     <HatIcon/>
@@ -134,7 +134,7 @@
     </div>
 </div>
 
-<div>
+<div class="pl-64">
     <form on:submit={handleSubmit}>
         <h1 class="title">Schedule an appointment</h1>
         <div class="form-control">
