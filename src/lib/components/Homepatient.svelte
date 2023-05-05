@@ -1,3 +1,10 @@
+<script>
+	import Register from './Register.svelte';
+import Modal from './Register.svelte';
+
+	let showModal = false;
+</script>
+
 <div class="sm:flex">
 	<div>
 		<ul class="menu bg-base-100 w-56 p-2 rounded-box">
@@ -28,7 +35,7 @@
 						width="16"
 						height="16"
 						fill="currentColor"
-						class="bi bi-calendar3"
+						class="bi bi-chat-text"
 						viewBox="0 0 16 16"
 					>
 						<path
@@ -41,16 +48,21 @@
 					Calendar
 				</a>
 			</li>
+			<li>
+				<a>
+					<label for="my-modal" class="btn">Are you a doctor?</label>
+				</a>
+			</li>
 		</ul>
 	</div>
 
 	<div class="sm:block">
 		<h1>Specialist</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
+		<h1>&nbsp;</h1>
+		<h1>&nbsp;</h1>
+		<h1>&nbsp;</h1>
+		<h1>&nbsp;</h1>
+		<h1>&nbsp;</h1>
 		<div class="stats shadow">
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
@@ -59,14 +71,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">General Medicine</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -74,14 +89,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Pediatrics</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -89,7 +107,10 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Odontology</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
@@ -106,14 +127,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Urology</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -121,14 +145,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Gynecology and Obstetrics</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -136,7 +163,10 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Oftalmology</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
@@ -153,14 +183,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Orthopedic surgery and Traumatology</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -168,14 +201,17 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Otorhinolaryngology</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
 					</div>
 				</div>
 			</div>
-	
+
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
@@ -183,7 +219,10 @@
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Plastic surgery</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua.
+						</p>
 						<div class="card-actions justify-end">
 							<button class="btn btn-primary">View list</button>
 						</div>
@@ -192,5 +231,11 @@
 			</div>
 		</div>
 	</div>
-	
+
+	<input type="checkbox" id="my-modal" class="modal-toggle" />
+	<div class="modal">
+		<div class="modal-box">
+			<Register/>
+		</div>
+	</div>
 </div>
