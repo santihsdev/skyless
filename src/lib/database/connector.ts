@@ -16,11 +16,12 @@ client.connect((err) => {
 });
 
 interface Reminder {
+	id_appointment: number;
 	date: string;
 	hour: string;
 	description: string;
-	id_doctor: number;
-	id_user: number;
+	id_doctor: string;
+	id_user: string;
 }
 
 export { client, type Reminder };

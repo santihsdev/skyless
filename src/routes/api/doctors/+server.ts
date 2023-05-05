@@ -1,3 +1,4 @@
+import { client } from '$lib/database/connector';
 import { error, json } from '@sveltejs/kit';
 
 export type Doctor = {
@@ -9,42 +10,20 @@ export type Doctor = {
 	email: string;
 };
 
-const doctors: Doctor[] = [
-	{
-		id: "1",
-		name: 'Doctor 1',
-		lastName: 'LastName',
-		cellphone: '2323423',
-		email: 'test@doctor.com',
-		speciality: 'Odontologist'
-	},
-	{
-		id: "2",
-		name: 'Doctor 2',
-		lastName: 'LastName',
-		cellphone: '2323423',
-		email: 'test@doctor.com',
-		speciality: 'Oncologist'
-	},
-	{
-		id: "3",
-		name: 'Doctor 3',
-		lastName: 'LastName',
-		cellphone: '2323423',
-		email: 'test@doctor.com',
-		speciality: 'Cardiologist'
-	},
-	{
-		id: "4",
-		name: 'Doctor 4',
-		lastName: 'LastName',
-		cellphone: '2323423',
-		email: 'test@doctor.com',
-		speciality: 'Cardiologist'
-	}
-];
-
 /** @type {import('./$types').RequestHandler} */
-export function GET({ url }) {
+export const GET = async ({ url: URL }) => {
+	const result = await client.query('SELECT * FROM doctor');
+
+	let doctors = result.rows.map(({ id, first_name, last_name, cellphone, speciality, email }) => ({
+		id: id,
+		name: first_name,
+		lastName: last_name,
+		cellphone: cellphone,
+		speciality: speciality,
+		email: email
+	}));
+
+	console.log(doctors);
+
 	return json(doctors);
-}
+};
