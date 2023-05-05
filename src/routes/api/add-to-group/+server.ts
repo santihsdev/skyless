@@ -30,9 +30,9 @@ export const POST = async ({ request }) => {
 			}
 		}
 	);
-	
-	if (resp.status == 204){
+
+	if (resp.status == 204) {
 		return json({ hello: 'world' });
 	}
-	throw error(401, "Unauthorized")
+	throw error(401, 'Unauthorized');
 };
