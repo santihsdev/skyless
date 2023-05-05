@@ -23,7 +23,7 @@
 			{speciality}
 		</p>
 		<div>
-			<a class="link link-hover link-info">More information</a>
+			<a class="link link-hover link-info" href="/doctor-profile">More information</a>
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
 			<br />

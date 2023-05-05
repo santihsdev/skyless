@@ -63,7 +63,7 @@
 				</li>
 			</ul>
 		</div>
-		<a href=""><img src="./src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
+		<a href="/doctor/id"><img src="src/lib/images/MedicalCheckLogo.png" width="200px" /></a>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal">
@@ -110,7 +110,7 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a class="btn btn-ghost">
+		<a class="btn btn-ghost" href="/login">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="25"
