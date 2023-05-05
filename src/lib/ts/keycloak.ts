@@ -1,3 +1,5 @@
+import { goto } from '$app/navigation';
+import { masterKey } from '$lib/stores/store';
 import Keycloak from 'keycloak-js';
 
 export class Auth {
@@ -11,15 +13,11 @@ export class Auth {
 	}
 	async tryLogin() {
 		const resp = await this.client.init({
-			onLoad: 'login-required'
+			onLoad: 'login-required',
+			//redirectUri: 'http://localhost:5173/client/hello'
 		});
-
-		console.log(resp);
-
-		console.log(this.client.tokenParsed);
-		console.log(this.client.idToken);
-
-		console.log(this.client.subject);
+		masterKey.set(this.client.subject??"Not found");
+		goto(`http://localhost:5173/patient/${this.client.subject}`);
 	}
 
 	login(): void {
