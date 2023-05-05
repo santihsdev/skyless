@@ -1,39 +1,23 @@
 <script>
-	import CalendarIcon from "../../icons/CalendarIcon.svelte";
-	import ChatIcon from "../../icons/ChatIcon.svelte";
-
+	import medicinageneral from "$lib/images/especialidades/medicinageneral.png";
+	import pediatria from "$lib/images/especialidades/pediatria.png";
+	import odontologia from "$lib/images/especialidades/odontologia.png";
+	import urologia from "$lib/images/especialidades/urologia.png";
+	import obstetriciayginecologia from "$lib/images/especialidades/obstetriciayginecologia.png";
+	import oftalmologia from "$lib/images/especialidades/oftalmologia.png";
+	import traumatologia from "$lib/images/especialidades/traumatologia.png";
+	import otorrinolaringologia from "$lib/images/especialidades/otorrinolaringologia.png";
+	import cirugiaplastica from "$lib/images/especialidades/cirugiaplastica.png";
 </script>
 
-<div class="sm:flex">
-	<div>
-		<ul class="menu bg-base-100 w-56 p-2 rounded-box">
-			<li class="disabled">
-				<a>
-					<ChatIcon/>
-					Chat
-				</a>
-			</li>
-			<li>
-				<a>
-					<CalendarIcon/>
-					Calendar
-				</a>
-			</li>
-		</ul>
-	</div>
-
+<div class="p-10 sm:ml-64">
 	<div class="sm:block">
 		<h1>Specialist</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
-		<h1> &nbsp;</h1>
 		<div class="stats shadow">
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="src/lib/images/especialidades/medicinageneral.png" alt="Shoes" />
+						<img src={medicinageneral} alt="Medicina general" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">General Medicine</h2>
@@ -48,7 +32,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/pediatria.png" alt="Shoes" />
+						<img src={pediatria} alt="pediatria" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Pediatrics</h2>
@@ -63,7 +47,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/odontologia.png" alt="Shoes" />
+						<img src={odontologia} alt="odontologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Odontology</h2>
@@ -80,7 +64,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/urologia.png" alt="Shoes" />
+						<img src={urologia} alt="urologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Urology</h2>
@@ -95,7 +79,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/obstetriciayginecologia.png" alt="Shoes" />
+						<img src={obstetriciayginecologia} alt="ginecologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Gynecology and Obstetrics</h2>
@@ -110,7 +94,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/oftalmologia.png" alt="Shoes" />
+						<img src={oftalmologia} alt="oftalmologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Oftalmology</h2>
@@ -127,7 +111,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/traumatologia.png" alt="Shoes" />
+						<img src={traumatologia} alt="traumatologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Orthopedic surgery and Traumatology</h2>
@@ -142,7 +126,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/otorrinolaringologia.png" alt="Shoes" />
+						<img src={otorrinolaringologia} alt="otorrinolaringologia" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Otorhinolaryngology</h2>
@@ -157,7 +141,7 @@
 			<div class="stat">
 				<div class="card card-compact w-65 bg-base-100 shadow-xl">
 					<figure>
-						<img src="./src/lib/images/especialidades/cirugiaplastica.png" alt="Shoes" />
+						<img src={cirugiaplastica} alt="cirugia plastica" />
 					</figure>
 					<div class="card-body">
 						<h2 class="card-title">Plastic surgery</h2>
@@ -170,5 +154,4 @@
 			</div>
 		</div>
 	</div>
-	
 </div>
