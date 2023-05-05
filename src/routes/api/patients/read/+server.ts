@@ -30,7 +30,7 @@ export async function GET({ url }) {
     console.log(resp.status);
     const result = await resp.json();
     if (resp.status == 200) {
-        return json({ result });
+        return json({ ...result });
     }
     throw error(resp.status, 'Error');
 }

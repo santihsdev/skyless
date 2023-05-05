@@ -10,21 +10,37 @@
 		key = value;
 	});
 
-	let token: Auth;
+	let authStore: Auth;
 	authToken.subscribe((value) => {
-		token = value;
+		authStore = value;
 	});
 
 	const handleSubmit = async () => {
 		console.log('click');
 		if (doctorCode === 1234) {
-			const resp = await fetch(`/api/patients/read?id=${key}&token=${token.getClient().token}`);
+			const resp = await fetch(`/api/patients/read?id=${key}&token=${authStore.getClient().token}`);
 			const js = await resp.json();
 			const { id, firstName, lastName, email } = js;
+
+			await fetch('/api/doctors/create', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					id,
+					name: firstName,
+					lastName,
+					cellphone,
+					speciality,
+					email
+				})
+			});
+
 			await fetch('/api/add-to-group', {
 				method: 'POST',
 				body: JSON.stringify({
-					token,
+					token: authStore.getClient().token,
 					idUser: id,
 					groupName: 'doctor'
 				})
