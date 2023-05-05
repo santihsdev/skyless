@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-	import Login from "../../lib/components/login.svelte";
+	import Login from "../../lib/components/Login.svelte";
 	import { Auth } from "$lib/ts/keycloak";
     let auth;
     onMount( () => {
