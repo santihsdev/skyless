@@ -1,6 +1,5 @@
 <script>
 	import HomePatient from "$lib/components/HomePatient.svelte";
-
 	let token ="patient"
 </script>
 
