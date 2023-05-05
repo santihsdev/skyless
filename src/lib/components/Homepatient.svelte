@@ -1,8 +1,5 @@
 <script>
 	import Register from './Register.svelte';
-import Modal from './Register.svelte';
-
-	let showModal = false;
 </script>
 
 <div class="sm:flex">

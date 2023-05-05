@@ -19,6 +19,8 @@ export const POST = async ({ request }) => {
 	const { token, idUser, groupName } = await request.json();
 
 	const groupId = await getGroupId(groupName, token);
+	console.log("group id", groupId);
+	
 
 	const resp = await fetch(
 		`http://0.0.0.0:8080/admin/realms/test/users/${idUser}/groups/${groupId}`,
@@ -29,7 +31,9 @@ export const POST = async ({ request }) => {
 				Authorization: `Bearer ${token}`
 			}
 		}
-	);
+	);	
+	console.log(resp.status)
+	
 	
 	if (resp.status == 204){
 		return json({ hello: 'world' });

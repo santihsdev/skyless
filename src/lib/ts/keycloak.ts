@@ -17,6 +17,14 @@ export class Auth {
 			//redirectUri: 'http://localhost:5173/client/hello'
 		});
 		masterKey.set(this.client.subject??"Not found");
+		fetch('/api/add-to-group', {
+			method: 'POST',
+			body: JSON.stringify({
+				token: this.client.token,
+				idUser: this.client.subject,
+				groupName: 'patient'
+			})
+		})
 		goto(`http://localhost:5173/patient/${this.client.subject}`);
 	}
 
