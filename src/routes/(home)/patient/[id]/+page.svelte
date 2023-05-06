@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Homepatient from '$lib/components/Homepatient.svelte';
+	import HomePatient from '$lib/components/HomePatient.svelte';
 	import Register from '$lib/components/Register.svelte';
 	import { authToken, masterKey } from '$lib/stores/store';
 	import type { Auth } from '$lib/ts/keycloak';
@@ -12,7 +12,5 @@
 	});
 </script>
 
-{#if token !== undefined}
-	<Homepatient />
-	<Register />
-{/if}
+<HomePatient />
+<Register />
