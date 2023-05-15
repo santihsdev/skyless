@@ -2,16 +2,15 @@ import { browser } from '$app/environment';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
-export function load({ cookies, url }) {
-	// let key, token;
-	// // const key = url.searchParams.get('key') ?? '0';
-	// // const myToken = url.searchParams.get('token') ?? 'Not Found';
-	// if (browser) {
-	// 	key = localStorage.getItem('key');
-	// 	token = localStorage.getItem('token');
-	// }
-	// console.log("hello ",  key, token);
-
-	// cookies.set('token', token, { path: '/' });
-	// cookies.set('key', key, { path: '/' });
+export async function load({ cookies, url }) {
+	const token = cookies.get('token');
+	const key = cookies.get('key');
+	const resp = await fetch(`/api/patients/read?id=${key}&token=${token}`);
+	if (resp.status == 200) {
+		return {isLogged : true};
+	}
+	if (resp.status == 401) {
+		return {isLogged : false};
+	}
+	console.log(resp.status);
 }
