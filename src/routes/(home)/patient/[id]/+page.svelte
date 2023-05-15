@@ -3,19 +3,7 @@
 	import Cookie from 'js-cookie';
 	import Register from '$lib/components/Register.svelte';
 	import { masterToken, masterKey } from '$lib/stores/store';
-	import { Auth } from '$lib/ts/keycloak';
 	import { browser } from '$app/environment';
-
-	export let data;
-
-	const { isLogged } = data;
-
-	if (browser) {
-		if (!isLogged) {
-			let auth = new Auth();
-			auth.login();
-		}
-	}
 
 	let token = 'patient';
 	let key: string | undefined;
