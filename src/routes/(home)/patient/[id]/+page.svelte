@@ -9,9 +9,12 @@
 	export let data;
 
 	const { isLogged } = data;
-	if (!isLogged) {
-		let auth = new Auth();
-		auth.login();
+
+	if (browser) {
+		if (!isLogged) {
+			let auth = new Auth();
+			auth.login();
+		}
 	}
 
 	let token = 'patient';
