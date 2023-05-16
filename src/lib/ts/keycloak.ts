@@ -1,5 +1,5 @@
-import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
+import Cookies from 'js-cookie';
 import Keycloak from 'keycloak-js';
 
 export class Auth {
@@ -25,10 +25,9 @@ export class Auth {
 				groupName: 'patient'
 			})
 		});
-		if (browser) {
-			localStorage.setItem('key', this.client.subject ?? '');
-			localStorage.setItem('token', this.client.token ?? '');
-		}
+
+		Cookies.set('key', this.client.subject ?? 'from-keycloak');
+		Cookies.set('token', this.client.token ?? 'from-keycloak');
 		goto(`/patient/${this.client.subject}`);
 	}
 
@@ -36,10 +35,14 @@ export class Auth {
 		this.tryLogin();
 	}
 
+	async tryLogout(): Promise<void> {
+		let data = this.client.createLogoutUrl();
+		console.log(data);
+	}
+
 	logout(): void {
 		console.log(this.client.subject);
-
-		this.client.logout();
+		this.tryLogout();
 	}
 
 	getClient(): Keycloak {

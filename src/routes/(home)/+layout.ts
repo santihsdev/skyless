@@ -1,9 +1,10 @@
 import { browser } from '$app/environment';
+import { goto } from '$app/navigation';
 import { error } from '@sveltejs/kit';
 import Cookies from 'js-cookie';
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	const token = Cookies.get('token');
 	const key = Cookies.get('key');
 
@@ -13,21 +14,7 @@ export async function load({ params }) {
 		if (resp.status == 200) {
 			return { isLogged: true };
 		}
-		if (resp.status == 401) {
-			Cookies.remove('token');
-			Cookies.remove('key');
-			const resp = await fetch('/api/patients/logout', {
-				method: 'POST',
-				body: JSON.stringify({
-					token,
-					IdUser: key
-				})
-			});
-			console.log(resp);
-			
-			return { isLogged: false };
-		}
-		console.log(resp.status);
+		console.log('layout: ', resp.status);
 	}
 	return { isLogged: false };
 }

@@ -19,7 +19,7 @@ export async function POST({ request }) {
 		},
 	});
 
-	console.log(resp.status);
+	console.log("logout server: ",  resp.status);
 
 	if (resp.status == 204) {
 		return json({ ok: resp.status });
