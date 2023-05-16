@@ -1,5 +1,5 @@
+import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
-import Cookies from 'js-cookie';
 import Keycloak from 'keycloak-js';
 
 export class Auth {
@@ -26,9 +26,11 @@ export class Auth {
 			})
 		});
 
-		Cookies.set('key', this.client.subject ?? 'from-keycloak');
-		Cookies.set('token', this.client.token ?? 'from-keycloak');
-		goto(`/patient/${this.client.subject}`);
+		if (browser) {
+			localStorage.setItem('key', this.client.subject ?? 'from-keycloak')
+			localStorage.setItem('token', this.client.token ?? 'from-keycloak');
+		}
+		await goto(`/patient/${this.client.subject}`);
 	}
 
 	login(): void {

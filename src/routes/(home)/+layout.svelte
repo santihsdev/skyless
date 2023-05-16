@@ -5,12 +5,8 @@
 
   const { isLogged } = data;
 
-  if (browser) {
-    if (!isLogged) {
-      let auth = new Auth();
-      auth.login();
-    }
-  }
+  console.log(isLogged);
+
 </script>
 
 <slot />

@@ -5,12 +5,11 @@
 	import SearchIcon from '../../icons/SearchIcon.svelte';
 	import ListIcon from '../../icons/ListIcon.svelte';
 	import MedicalCheckLogo from '$lib/images/MedicalCheckLogo.png';
-	import Cookies from 'js-cookie';
 	import { masterKey } from '$lib/stores/store';
 
-	let id: string = Cookies.get('key');
+	let id: string;
+	masterKey.subscribe((value) => (id = value));
 	$: id;
-	console.log(id);
 </script>
 
 <nav class="fixed top-0 z-59 w-full navbar bg-base-100">
@@ -55,7 +54,7 @@
 				</li>
 			</ul>
 		</div>
-		<a href={id === undefined ? '/' : `/patient/${id}`}
+		<a href={id === "key-default" ? '/' : `/patient/${id}`}
 			><img src={MedicalCheckLogo} width="200px" alt="" /></a
 		>
 	</div>
@@ -94,10 +93,16 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a class="btn btn-ghost" href="/login">
-			<LoginIcon />
-			&nbsp; Login
-		</a>
-		<a href="/logout">Logout</a>
+		{#if id.length <= 11}
+			<a class="btn btn-ghost" href="/login">
+				<LoginIcon />
+				&nbsp; Login
+			</a>
+		{:else}
+			<a class="btn btn-ghost" href="/logout">
+				<LoginIcon />
+				&nbsp; Logout
+			</a>
+		{/if}
 	</div>
 </nav>

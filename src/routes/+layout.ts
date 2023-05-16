@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 export function load({}) {
 	const token = Cookies.get('token');
 	const key = Cookies.get('key');
-	
-	masterKey.set(key ?? 'key-from-layout');
-	masterToken.set(token ?? 'key-from-layout');
+
+	masterKey.set(key ?? 'key-layout');
+	masterToken.set(token ?? 'token-layout');
 }
