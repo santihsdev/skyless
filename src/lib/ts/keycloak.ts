@@ -17,7 +17,7 @@ export class Auth {
 			//redirectUri: 'http://localhost:5173/client/hello'
 		});
 
-		fetch('/api/add-to-group', {
+		fetch('/api/group/add', {
 			method: 'POST',
 			body: JSON.stringify({
 				token: this.client.token,
@@ -27,7 +27,7 @@ export class Auth {
 		});
 
 		if (browser) {
-			localStorage.setItem('key', this.client.subject ?? 'from-keycloak')
+			localStorage.setItem('key', this.client.subject ?? 'from-keycloak');
 			localStorage.setItem('token', this.client.token ?? 'from-keycloak');
 		}
 		await goto(`/patient/${this.client.subject}`);

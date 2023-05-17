@@ -35,7 +35,7 @@
 				})
 			});
 
-			await fetch('/api/add-to-group', {
+			await fetch('/api/group/add', {
 				method: 'POST',
 				body: JSON.stringify({
 					token: token,
