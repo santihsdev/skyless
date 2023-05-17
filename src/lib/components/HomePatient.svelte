@@ -13,6 +13,8 @@
 	import specialities from '$lib/data/specialities.json';
 	import Register from './Register.svelte';
 
+	import Carousel from './Carousel.svelte';
+
 	const items = [
 		medicinageneral,
 		pediatria,
@@ -25,6 +27,8 @@
 		cirugiaplastica
 	];
 </script>
+
+<Carousel />
 
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-20 sm:ml-64">
 	{#each specialities as { Speciality, Description, Path }, index}

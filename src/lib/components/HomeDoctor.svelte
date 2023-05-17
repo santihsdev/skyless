@@ -1,3 +1,10 @@
+<script>
+	import Carousel from "./Carousel.svelte";
+
+</script>
+
+<Carousel/>
+
 <div class="p-10 sm:ml-64">
 	<div class="overflow-x-auto w-full ">
 		<table class="table w-full">
