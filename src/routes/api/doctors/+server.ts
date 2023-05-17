@@ -1,5 +1,6 @@
 import { client } from '$lib/database/connector';
 import { error, json } from '@sveltejs/kit';
+const { table_doctor } = require('.././../../../../database-variables.js');
 
 export type Doctor = {
 	id: string;
@@ -12,7 +13,7 @@ export type Doctor = {
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url: URL }) => {
-	const result = await client.query('SELECT * FROM doctor');
+	const result = await client.query('SELECT * FROM ${table_doctor}');
 
 	let doctors = result.rows.map(({ id, first_name, last_name, cellphone, speciality, email }) => ({
 		id: id,
