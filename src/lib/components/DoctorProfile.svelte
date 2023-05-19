@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<div class="px-5 pb-6 pl-72">
+<div class="px-5 pl-72">
 	<div class="sm:flex">
 		<CardIcon/>
 		<h3 class="px-5 text-2xl font-bold">About Fady Khoury-Collado</h3>
@@ -66,7 +66,7 @@
 	</p>
 </div>
 
-<div class="sm:flex pl-72">
+<div class="sm:flex p-14 pl-72 justify-center">
     <div class="stats stats-vertical lg:stats-horizontal shadow">
         <div class="stat w-80">
             <div>
