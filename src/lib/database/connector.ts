@@ -1,10 +1,17 @@
 import { Client } from 'pg';
+import {
+	data_base_name,
+	data_base_password,
+	data_base_user,
+	database_port
+} from './database-variables';
+
 const client = new Client({
-	user: 'keycloak',
+	user: data_base_user,
 	host: 'localhost',
-	database: 'keycloak',
-	password: 'password',
-	port: 5432
+	database: data_base_name,
+	password: data_base_password,
+	port: database_port
 });
 
 client.connect((err) => {

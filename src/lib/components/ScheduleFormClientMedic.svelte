@@ -1,26 +1,27 @@
 <script>
-	import {onMount} from "svelte";
+	import { onMount } from 'svelte';
 	export let id = '';
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const id_user = "2";
+		const id_user = localStorage.getItem('key') ?? '';
 
-		formData.append("id_doctor", id);
-		formData.append("id_user", id_user);
+		formData.append('id_doctor', id);
+		formData.append('id_user', id_user);
 
-		const result = await fetch("api/appoinments/create", {method: "POST", body: formData});
+		const result = await fetch('api/appoinments/create', { method: 'POST', body: formData });
 		console.log(await result.json());
 	}
 	let forms = [];
 	onMount(async () => {
-		forms = await fetch("api/appoinments/get-all").then(item => item.json());
+		forms = await fetch(`api/appoinments/get-all?key=${localStorage.getItem('key')}`).then((item) =>
+			item.json()
+		);
 	});
 </script>
 
 <label for="my-modal-3" class="btn">schedule now</label>
 <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-
 
 <div class="modal">
 	<div class="modal-box relative">
@@ -40,11 +41,14 @@
 				<textarea class="textarea" name="description" rows="4" />
 			</div>
 
-			<button type="submit" class="btn2" onclick="document.querySelector('.modal-toggle').checked = false;">Schedule</button>
+			<button
+				type="submit"
+				class="btn2"
+				onclick="document.querySelector('.modal-toggle').checked = false;">Schedule</button
+			>
 		</form>
 	</div>
 </div>
-
 
 <style>
 	form {
