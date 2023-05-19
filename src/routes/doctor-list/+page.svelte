@@ -1,5 +1,5 @@
 <script>
-	import DoctorList from "$lib/components/DoctorList.svelte";
+	import DoctorList from '$lib/components/DoctorList.svelte';
 </script>
 
-<DoctorList/>
+<DoctorList isOpen={true} />
