@@ -2,4 +2,6 @@
 	import DoctorList from '$lib/components/DoctorList.svelte';
 </script>
 
-<DoctorList isOpen={true} />
+<div class="flex flex-col min-h-screen">
+	<DoctorList isOpen={true} />
+</div>

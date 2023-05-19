@@ -6,11 +6,13 @@
 	import '../app.postcss';
 </script>
 
-<header class="sticky top-0 z-50">
-	<Header />
-</header>
-
-<SideMenu />
-
-<slot />
-<Footer />
+<div class="flex flex-col min-h-screen">
+	<header class="sticky top-0 z-50">
+		<Header/>
+	</header>
+	<SideMenu/>
+	
+	<slot />
+	
+	<Footer/>
+</div>
