@@ -23,34 +23,14 @@
 				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li tabindex="0">
-					<a class="justify-between">
-						Find a doctor
-						<ArrowRightIcon />
+					<a class="justify-between" href="/doctor-list">
+						View all doctors
 					</a>
-					<ul class="p-2 bg-accent-focus">
-						<h4>Search for a Doctor</h4>
-						<div class="form-control">
-							<div class="input-group">
-								<input type="text" placeholder="Search…" class="input input-bordered" />
-								<button class="btn btn-square">
-									<SearchIcon />
-								</button>
-							</div>
-						</div>
-						<a href="/doctor-list"
-							><button class="btn btn-link text-white">View all doctors</button></a
-						>
-					</ul>
 				</li>
 				<li tabindex="0">
 					<a class="justify-between">
 						About us
-						<ArrowRightIcon />
 					</a>
-					<ul class="p-2 bg-accent-focus">
-						<li><button class="btn btn-outline btn-wide text-white">Our mission</button></li>
-						<li><button class="btn btn-outline btn-wide text-white">Frequent questions</button></li>
-					</ul>
 				</li>
 			</ul>
 		</div>
@@ -61,34 +41,14 @@
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal">
 			<li tabindex="0">
-				<a>
-					Find a doctor
-					<ArrowDownIcon />
-				</a>
-				<ul class="p-2 bg-accent-focus">
-					<h4>Search for a Doctor</h4>
-					<div class="form-control">
-						<div class="input-group">
-							<input type="text" placeholder="Search…" class="input input-bordered" />
-							<button class="btn btn-square">
-								<SearchIcon />
-							</button>
-						</div>
-					</div>
-					<a href="/doctor-list"
-						><button class="btn btn-link text-white">View all doctors</button></a
-					>
-				</ul>
+				<a href="/doctor-list">
+					View all doctors</a>
 			</li>
 			<li tabindex="0">
 				<a>
 					About us
-					<ArrowDownIcon />
 				</a>
-				<ul class="p-2 bg-accent-focus flex-auto w-100">
-					<button class="btn btn-outline btn-wide text-white">Our mission</button>
-					<button class="btn btn-outline btn-wide text-white">Frequent questions</button>
-				</ul>
+				
 			</li>
 		</ul>
 	</div>
