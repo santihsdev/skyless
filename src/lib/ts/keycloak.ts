@@ -1,5 +1,5 @@
+import { browser } from '$app/environment';
 import { goto } from '$app/navigation';
-import { masterKey } from '$lib/stores/store';
 import Keycloak from 'keycloak-js';
 
 export class Auth {
@@ -13,10 +13,10 @@ export class Auth {
 	}
 	async tryLogin() {
 		const resp = await this.client.init({
-			onLoad: 'login-required',
+			onLoad: 'login-required'
 			//redirectUri: 'http://localhost:5173/client/hello'
 		});
-		masterKey.set(this.client.subject??"Not found");
+
 		fetch('/api/add-to-group', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -24,8 +24,12 @@ export class Auth {
 				idUser: this.client.subject,
 				groupName: 'patient'
 			})
-		})
-		goto(`http://localhost:5173/patient/${this.client.subject}`);
+		});
+		if (browser) {
+			localStorage.setItem('key', this.client.subject ?? '');
+			localStorage.setItem('token', this.client.token ?? '');
+		}
+		goto(`/patient/${this.client.subject}`);
 	}
 
 	login(): void {
