@@ -9,7 +9,7 @@
 	import MedicalCheckLogo from "$lib/images/MedicalCheckLogo.png"; 
 </script>
 
-<footer class="footer sm:ml-64 p-10 w-auto bg-base-300 text-base-content">
+<footer class="footer p-10 z-50 w-auto bg-base-300 text-base-content">
 	<div>
         <img src={MedicalCheckLogo} width="200px">
 	</div>
@@ -36,15 +36,9 @@
 		<span class="footer-title">Social</span>
         <div class="sm:flex">
             <div class="grid grid-flow-col gap-4">
-                <a>
-                    <InstagramIcon/>
-                </a>
-                <a>
-                    <FacebookIcon/>
-                </a>
-                <a>
-                    <TwitterIcon/>
-                </a>
+                <a> <InstagramIcon/> </a>
+                <a> <FacebookIcon/> </a>
+                <a> <TwitterIcon/> </a>
             </div>
         </div>
 	</div>
