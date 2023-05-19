@@ -16,10 +16,10 @@ export async function POST({ request }) {
 		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${token}`
-		},
+		}
 	});
 
-	console.log("logout server: ",  resp.status);
+	console.log('logout server: ', resp.status);
 
 	if (resp.status == 204) {
 		return json({ ok: resp.status });

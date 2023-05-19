@@ -69,6 +69,6 @@
 		margin: auto;
 		padding: auto;
 		max-width: auto;
-        margin-right: 90px;
+		margin-right: 90px;
 	}
 </style>

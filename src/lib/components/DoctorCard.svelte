@@ -27,7 +27,7 @@
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
 			<br />
-			<ScheduleFormClientMedic {id}/>
+			<ScheduleFormClientMedic {id} />
 		</div>
 	</div>
 </div>
