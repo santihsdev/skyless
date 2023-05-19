@@ -1,17 +1,16 @@
 <script>
+	import { browser } from '$app/environment';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import SideMenu from "$lib/components/SideMenu.svelte";
+	import SideMenu from '$lib/components/SideMenu.svelte';
 	import '../app.postcss';
 </script>
 
 <header class="sticky top-0 z-50">
-	<Header/>
+	<Header />
 </header>
 
-<SideMenu/>
+<SideMenu />
 
 <slot />
-<footer>
-	<Footer/>
-</footer>
+<Footer />
