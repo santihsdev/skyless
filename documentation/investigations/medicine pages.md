@@ -1,10 +1,11 @@
 # MEDICAL PAGES
+
 Using medical pages as a guide for the mockup
 
 For more details:
 
 - NYC HEALTH HOSPITALS: <br>
-https://www.nychealthandhospitals.org/
+  https://www.nychealthandhospitals.org/
 
 - CONSULTORIOWEB.COM : <br>https://www.consultorioweb.com/?gclid=CjwKCAjwov6hBhBsEiwAvrvN6DLBmqQXdqTQI9CgoDlKkUM-vGLYj3IRlTB4BmVSYMtqA36XK8rK8xoC-2gQAvD_BwE
 - POLICLINICO MAYOLO : <br>https://policlinicomayolo.pe/centro-de-urologia-lima-norte/?gclid=CjwKCAjwov6hBhBsEiwAvrvN6IDHPHY_moWOZbl5dwBtTWCiVpiIMSIKZ__vbR2T3qtV7Bp7QNrlqhoCvGIQAvD_BwE

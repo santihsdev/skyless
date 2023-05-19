@@ -8,11 +8,11 @@
 
 <div class="flex flex-col min-h-screen">
 	<header class="sticky top-0 z-50">
-		<Header/>
+		<Header />
 	</header>
-	<SideMenu/>
-	
+	<SideMenu />
+
 	<slot />
-	
-	<Footer/>
+
+	<Footer />
 </div>

@@ -2,23 +2,13 @@
 
 ![Logo](src/lib/images/MedicalCheckLogo.png)
 
-
-
 The platform allows users to schedule appointments with doctors, dentists or other healthcare professionals, as well as receive appointment reminders, reschedule appointments, control and avoid appointment scheduling conflicts.
-
-
 
 The platform has an authentication module that is available to all users, there are at least two types of users (patients and doctors). Users must authenticate to use the platform.
 
-
-
 The platform includes features such as patient registration, doctor registration. The platform also has appointment reminders for patient and doctor notifications, billing and payments, online communication.
 
-
-
 ## Appendix
-
-
 
 For the project the following APIs were used:
 
@@ -26,25 +16,15 @@ For the project the following APIs were used:
 
 - PG npm
 
-
-
 Tools:
-
-
 
 - PostgreSQL
 
 - Keycloack
 
-
-
 ## Deployment
 
-
-
 To deploy this project run
-
-
 
 ```bash
 
@@ -54,15 +34,9 @@ sudo docker-compose up
 
 ```
 
-
-
 ## Environment Variables
 
-
-
 To run this project, you will need to add the following environment variables to your .env file
-
-
 
 `docker`
 
@@ -70,12 +44,7 @@ To run this project, you will need to add the following environment variables to
 
 `keycloack`
 
-
-
-
 ## Authors
-
-
 
 - [@santihsdev](https://github.com/santihsdev)
 
@@ -89,13 +58,7 @@ To run this project, you will need to add the following environment variables to
 
 - [@cris]()
 
-
-
-
-
 ## Features
-
-
 
 - [x] Módulo de registro e inicio de sesión
 
@@ -122,28 +85,34 @@ To run this project, you will need to add the following environment variables to
 
   - [ ] Tarea: Permitir a los usuarios configurar sus preferencias de recordatorios
 
-
-
 ## Run Locally
 
 Clone the project
+
 ```bash
 
 git https://github.com/santihsdev/skyless
 
 ```
+
 Install dependencies
+
 ```bash
 npm install
 ```
+
 Start the services
+
 ```bash
 sudo docker-compose up
 ```
+
 Start the page
+
 ```bash
 npm run dev
 ```
+
 ### Course
 
 Course: https://www.notion.so/Desarrollo-Software-V-3afae970164e4aac92ff82eea7d79116
@@ -183,7 +152,7 @@ When entering the application it is necessary
 
   ![Untitled](README%20215ebc0551504b14b1c67e82333a7e40/Untitled%204.png)
 
-    - Here is necessary to enable the `Update profile` and `Update user locale`
+  - Here is necessary to enable the `Update profile` and `Update user locale`
 
 With all this set up is possible to use the Keycloak.
 
@@ -198,7 +167,7 @@ It is also necessary to create 2 tables in postgres in the `keycloak` database, 
 
 CREATE TABLE IF NOT EXISTS public.appointment_form
 (
-    id_appointment integer NOT NULL DEFAULT 
+    id_appointment integer NOT NULL DEFAULT
 		nextval('appointment_form_id_appointment_seq'::regclass),
     hour time with time zone,
     description text COLLATE pg_catalog."default" NOT NULL,

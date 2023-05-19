@@ -1,12 +1,11 @@
 <script>
-	import Carousel from "./Carousel.svelte";
-
+	import Carousel from './Carousel.svelte';
 </script>
 
-<Carousel/>
+<Carousel />
 
 <div class="p-10 sm:ml-64">
-	<div class="overflow-x-auto w-full ">
+	<div class="overflow-x-auto w-full">
 		<table class="table w-full">
 			<tbody>
 				<tr>
@@ -15,24 +14,25 @@
 					</th>
 					<td>
 						<div tabindex="0" class="collapse">
-							<div class ="collapse-title text-xl font-medium">
-								<div class="font-bold">Gregory O'Connor appointment </div>
+							<div class="collapse-title text-xl font-medium">
+								<div class="font-bold">Gregory O'Connor appointment</div>
 								<div class="text-sm opacity-50">Face to face appointment</div>
 							</div>
-                            <div >
-                                <div class="collapse-content" >
-                                    <p class="textarea textarea-bordered h-24" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-                                </div>
-                            </div>
-							
+							<div>
+								<div class="collapse-content">
+									<p class="textarea textarea-bordered h-24">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									</p>
+								</div>
+							</div>
 						</div>
 					</td>
 					<th>
-                        <label class="swap">
-                            <input type="checkbox" />
-                            <div class="swap-on bg-success rounded-full" >&nbsp;Accepted&nbsp;</div>
-                            <div class="swap-off">OFF</div>
-                        </label>
+						<label class="swap">
+							<input type="checkbox" />
+							<div class="swap-on bg-success rounded-full">&nbsp;Accepted&nbsp;</div>
+							<div class="swap-off">OFF</div>
+						</label>
 					</th>
 				</tr>
 				<tr>
@@ -41,21 +41,23 @@
 					</th>
 					<td>
 						<div tabindex="0" class="collapse">
-							<div class ="collapse-title text-xl font-medium">
+							<div class="collapse-title text-xl font-medium">
 								<div class="font-bold">Laura Mc.Gregor appointment</div>
 								<div class="text-sm opacity-50">Virtual appointment</div>
 							</div>
 							<div class="collapse-content">
-								<p class="textarea textarea-bordered h-24" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
+								<p class="textarea textarea-bordered h-24">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								</p>
 							</div>
 						</div>
 					</td>
 					<th>
 						<label class="swap">
-                            <input type="checkbox" />
-                            <div class="swap-on bg-success rounded-full" >&nbsp;Accepted&nbsp;</div>
-                            <div class="swap-off">OFF</div>
-                        </label>
+							<input type="checkbox" />
+							<div class="swap-on bg-success rounded-full">&nbsp;Accepted&nbsp;</div>
+							<div class="swap-off">OFF</div>
+						</label>
 					</th>
 				</tr>
 				<tr>
@@ -64,21 +66,21 @@
 					</th>
 					<td>
 						<div tabindex="0" class="collapse">
-							<div class ="collapse-title text-xl font-medium">
+							<div class="collapse-title text-xl font-medium">
 								<div class="font-bold">Nothing</div>
-								<div class="text-sm opacity-50"></div>
+								<div class="text-sm opacity-50" />
 							</div>
 							<div class="collapse-content">
-								<p class="textarea textarea-bordered h-24" ></p>
+								<p class="textarea textarea-bordered h-24" />
 							</div>
 						</div>
 					</td>
 					<th>
 						<label class="swap">
-                            <input type="checkbox" />
-                            <div class="swap-on bg-success rounded-full" >&nbsp;Accepted&nbsp;</div>
-                            <div class="swap-off">OFF</div>
-                        </label>
+							<input type="checkbox" />
+							<div class="swap-on bg-success rounded-full">&nbsp;Accepted&nbsp;</div>
+							<div class="swap-off">OFF</div>
+						</label>
 					</th>
 				</tr>
 				<tr>
@@ -87,21 +89,23 @@
 					</th>
 					<td>
 						<div tabindex="0" class="collapse">
-							<div class ="collapse-title text-xl font-medium">
+							<div class="collapse-title text-xl font-medium">
 								<div class="font-bold">Hart Hagerty</div>
 								<div class="text-sm opacity-50">Vrtual appointment</div>
 							</div>
 							<div class="collapse-content">
-								<p class="textarea textarea-bordered h-24" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
+								<p class="textarea textarea-bordered h-24">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								</p>
 							</div>
 						</div>
 					</td>
 					<th>
 						<label class="swap">
-                            <input type="checkbox" />
-                            <div class="swap-on bg-success rounded-full" >&nbsp;Accepted&nbsp;</div>
-                            <div class="swap-off">OFF</div>
-                        </label>
+							<input type="checkbox" />
+							<div class="swap-on bg-success rounded-full">&nbsp;Accepted&nbsp;</div>
+							<div class="swap-off">OFF</div>
+						</label>
 					</th>
 				</tr>
 			</tbody>

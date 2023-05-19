@@ -23,32 +23,24 @@
 				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
 				<li tabindex="0">
-					<a class="justify-between" href="/doctor-list">
-						View all doctors
-					</a>
+					<a class="justify-between" href="/doctor-list"> View all doctors </a>
 				</li>
 				<li tabindex="0">
-					<a class="justify-between">
-						About us
-					</a>
+					<a class="justify-between"> About us </a>
 				</li>
 			</ul>
 		</div>
-		<a href={id === "key-default" ? '/' : `/patient/${id}`}
+		<a href={id === 'key-default' ? '/' : `/patient/${id}`}
 			><img src={MedicalCheckLogo} width="200px" alt="" /></a
 		>
 	</div>
 	<div class="navbar-center hidden lg:flex">
 		<ul class="menu menu-horizontal">
 			<li tabindex="0">
-				<a href="/doctor-list">
-					View all doctors</a>
+				<a href="/doctor-list"> View all doctors</a>
 			</li>
 			<li tabindex="0">
-				<a>
-					About us
-				</a>
-				
+				<a> About us </a>
 			</li>
 		</ul>
 	</div>

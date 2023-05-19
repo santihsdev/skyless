@@ -3,5 +3,5 @@
 </script>
 
 <div class="sm:flex">
-	<TableReminder/>
+	<TableReminder />
 </div>

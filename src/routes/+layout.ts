@@ -1,4 +1,2 @@
-
 /** @type {import('./$types').LayoutLoad} */
-export function load({}) {
-}
+export function load({}) {}
