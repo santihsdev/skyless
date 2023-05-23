@@ -1,24 +1,44 @@
 <script>
 	import { onMount } from 'svelte';
+	import { z } from 'zod';
 	export let id = '';
+
+	const appointmentSchema = z.object({
+		date: z.string().nonempty('La fecha es requerida.'),
+		hour: z.string().nonempty('La hora es requerida.'),
+		description: z.string().nonempty('La descripción es requerida.'),
+		id_doctor: z.string().nonempty('El id_doctor es requerido.'),
+		id_user: z.string().nonempty('El id_user es requerido.')
+	});
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
 		const id_user = localStorage.getItem('key') ?? '';
-
 		formData.append('id_doctor', id);
 		formData.append('id_user', id_user);
+		const appointment = Object.fromEntries(formData.entries());
+		try {
+			const validatedData = appointmentSchema.parse(appointment);
+			const result = await fetch('api/appoinments/create', { method: 'POST', body: formData });
+			console.log(await result.json());
 
-		const result = await fetch('api/appoinments/create', { method: 'POST', body: formData });
-		console.log(await result.json());
+			// Cierra el modal sólo si la validación y la solicitud de la API fueron exitosas
+			document.querySelector('.modal-toggle').checked = false;
+		} catch (error) {
+			console.error(error.errors);
+		}
 	}
+
+
 	let forms = [];
 	onMount(async () => {
 		forms = await fetch(`api/appoinments/get-all?key=${localStorage.getItem('key')}`).then((item) =>
-			item.json()
+				item.json()
 		);
 	});
 </script>
+
 
 <label for="my-modal-3" class="btn">schedule now</label>
 <input type="checkbox" id="my-modal-3" class="modal-toggle" />
@@ -38,14 +58,11 @@
 			</div>
 			<div class="form-control">
 				<label class="label">Descripción:</label>
-				<textarea class="textarea" name="description" rows="4" />
+				<textarea class="textarea" name="description" rows="4"></textarea>
 			</div>
 
-			<button
-				type="submit"
-				class="btn2"
-				onclick="document.querySelector('.modal-toggle').checked = false;">Schedule</button
-			>
+			<button type="submit" class="btn2">Schedule</button>
+
 		</form>
 	</div>
 </div>
