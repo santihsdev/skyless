@@ -1,9 +1,9 @@
 import { client } from '$lib/database/connector';
 import { appointment_table } from '$lib/database/database-variables';
 import { json } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from './$types';
 
-/** @type {import('./$types').RequestHandler} */
-export async function POST(event) {
+export const POST: RequestHandler = async (event: RequestEvent) => {
 	const body = await event.request.formData();
 
 	const result = await client.query(
@@ -18,4 +18,4 @@ export async function POST(event) {
 	);
 
 	return json(result.rows[0]);
-}
+};

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import DoctorCard from './DoctorCard.svelte';
-	import type { Doctor } from '../../routes/api/doctors/+server';
+	import type { Doctor } from '$lib/types/doctor';
 
 	export let speciality: string = 'Default';
 	export let isOpen: boolean = false;

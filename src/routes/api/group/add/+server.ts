@@ -1,4 +1,5 @@
 import { error, json } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
 const getGroupId = async (group: string, token: string): Promise<number> => {
 	const resp = await fetch(`http://0.0.0.0:8080/admin/realms/test/groups?search=${group}`, {
@@ -14,8 +15,7 @@ const getGroupId = async (group: string, token: string): Promise<number> => {
 	return id;
 };
 
-/** @type {import('./$types').RequestHandler} */
-export const POST = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }) => {
 	const { token, idUser, groupName } = await request.json();
 
 	const groupId = await getGroupId(groupName, token);
