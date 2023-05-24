@@ -79,6 +79,19 @@
 			<input type="text" id="cellphone" placeholder="Enter your cellphone" bind:value={cellphone} />
 		</div>
 		<div class="form-element">
+			<label for="identityCard">CI: </label>
+			<input type="text" id="identityCard" placeholder="Enter your CI" bind:value={identityCard} />
+		</div>
+		<div class="form-element">
+			<label for="gender">Gender: </label>
+			<select id="gender" bind:value={gender}>
+				<option value="">Select your gender</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+		<div class="form-element">
 			<label for="doctor-code">Doctor code: </label>
 			<input type="password" id="doctor-code" placeholder="doctor-code" bind:value={doctorCode} />
 		</div>
