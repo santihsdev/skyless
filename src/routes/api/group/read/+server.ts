@@ -1,7 +1,8 @@
 import { error, json } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
 /** @type {import('./$types').RequestHandler} */
-export const GET = async ({ url }) => {
+export const GET: RequestHandler = async ({ url }) => {
 	const id = url.searchParams.get('id') ?? 0;
 	const token = url.searchParams.get('token') ?? 0;
 

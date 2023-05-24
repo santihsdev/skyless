@@ -1,12 +1,8 @@
+import type { User } from '$lib/types/user';
 import { json } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from './$types';
 
-interface User {
-	user: string;
-	password: string;
-}
-
-/** @type {import('./$types').RequestHandler} */
-export const POST = async ({ request }) => {
+export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 	const { user, password }: User = await request.json();
 	// console.log(user, password);
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Reminder } from '$lib/database/connector';
 	import RowTableReservation from '$lib/components/RowTableReminder.svelte';
+	import type { Reminder } from '$lib/types/reminder';
 	import { onMount } from 'svelte';
 
 	let reminders: Reminder[] = [];

@@ -1,14 +1,9 @@
+import type { Client } from '$lib/types/client';
 import { json, error } from '@sveltejs/kit';
-
-export type Client = {
-	email?: string;
-	firstName: string;
-	lastName: string;
-	username?: string;
-};
+import type { RequestEvent, RequestHandler } from './$types';
 
 /** @type {import('./$types').RequestHandler} */
-export async function POST({ request }) {
+export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 	const { idUser, token, client } = await request.json();
 
 	const userValues: Client = client;
@@ -29,4 +24,4 @@ export async function POST({ request }) {
 		return json({ ok: resp.status });
 	}
 	throw error(resp.status, 'Error');
-}
+};
