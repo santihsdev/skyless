@@ -1,14 +1,7 @@
 import { json, error } from '@sveltejs/kit';
+import type { RequestHandler, RequestEvent } from './$types';
 
-export type Client = {
-	email?: string;
-	firstName: string;
-	lastName: string;
-	username?: string;
-};
-
-/** @type {import('./$types').RequestHandler} */
-export async function GET({ url }) {
+export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 	const id = url.searchParams.get('id') ?? 0;
 	const token = url.searchParams.get('token') ?? 0;
 
@@ -26,4 +19,4 @@ export async function GET({ url }) {
 		return json({ ...result });
 	}
 	throw error(resp.status, 'Error');
-}
+};

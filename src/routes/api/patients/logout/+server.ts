@@ -1,4 +1,5 @@
 import { json, error } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from './$types';
 
 export type Client = {
 	email?: string;
@@ -7,8 +8,7 @@ export type Client = {
 	username?: string;
 };
 
-/** @type {import('./$types').RequestHandler} */
-export async function POST({ request }) {
+export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 	const { idUser, token } = await request.json();
 
 	const resp = await fetch(`http://0.0.0.0:8080/admin/realms/test/users/${idUser}/logout`, {
@@ -25,4 +25,4 @@ export async function POST({ request }) {
 		return json({ ok: resp.status });
 	}
 	throw error(resp.status, 'Error');
-}
+};
