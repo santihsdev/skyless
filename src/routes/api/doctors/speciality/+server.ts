@@ -7,15 +7,9 @@ export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 	const id = url.searchParams.get('id') ?? '0';
 
 	const result = await client.query(
-		`SELECT id, name, first_name, last_name, cellphone, speciality, email FROM ${doctor_table} where id=$1;`,
+		`SELECT id, name, first_name, last_name, cellphone, speciality, email FROM ${doctor_table} where speciality_id=$1;`,
 		[id]
 	);
 
-	console.log(result.rowCount);
-	if (result.rowCount == 1) {
-		return json(result.rows[0]);
-	}
-
-	error(404);
-	return json([]);
+	return json(result.rows);
 };
