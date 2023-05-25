@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
-	import { masterKey, masterToken } from '$lib/stores/store';
+	import { masterKey, masterToken, menuOpen } from '$lib/stores/store';
 	onMount(async () => {
 		if (browser) {
 			const token = localStorage.getItem('token');
@@ -18,6 +18,7 @@
 			localStorage.removeItem('token');
 			masterKey.update((value) => (value = 'key-default'));
 			masterToken.update((value) => (value = 'token-default'));
+			menuOpen.set(false)
 			goto('/doctor-list');
 		}
 	});
