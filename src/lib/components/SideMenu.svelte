@@ -2,6 +2,7 @@
 	import ChatIcon from '../../icons/ChatIcon.svelte';
 	import CalendarIcon from '../../icons/CalendarIcon.svelte';
 	import Register from './Register.svelte';
+	import { masterKey } from '$lib/stores/store';
 </script>
 
 <aside
