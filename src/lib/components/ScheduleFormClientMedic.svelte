@@ -1,68 +1,97 @@
-<script>
-	import { onMount } from 'svelte';
-	import { z } from 'zod';
+<script lang="ts">
+	import { appointmentSchema } from '$lib/schemas/appointmentSchema';
+	import type { Reminder } from '$lib/types/reminder';
+	import { ZodError } from 'zod';
 	export let id = '';
 
-	const appointmentSchema = z.object({
-		date: z.string().nonempty('La fecha es requerida.'),
-		hour: z.string().nonempty('La hora es requerida.'),
-		description: z.string().nonempty('La descripción es requerida.'),
-		id_doctor: z.string().nonempty('El id_doctor es requerido.'),
-		id_user: z.string().nonempty('El id_user es requerido.')
-	});
+	let isBadDescription: boolean = false;
+	let messageDescription: string = '';
+	let isVisible: boolean;
 
-	async function handleSubmit(event) {
-		event.preventDefault();
-		const formData = new FormData(event.target);
-		const id_user = localStorage.getItem('key') ?? '';
-		formData.append('id_doctor', id);
-		formData.append('id_user', id_user);
-		const appointment = Object.fromEntries(formData.entries());
+	$: isBadDescription;
+	$: console.log(isVisible);
+
+	let appointmentForm: Reminder = {
+		date: '',
+		hour: '',
+		description: '',
+		id_doctor: '',
+		id_user: ''
+	};
+
+	const handleSubmit = async () => {
 		try {
-			const validatedData = appointmentSchema.parse(appointment);
-			const result = await fetch('api/appoinments/create', { method: 'POST', body: formData });
-			console.log(await result.json());
+			appointmentForm.id_doctor = id;
+			appointmentForm.id_user = localStorage.getItem('key') ?? '';
+			const appointment: Reminder = appointmentSchema.parse(appointmentForm);
 
-			// Cierra el modal sólo si la validación y la solicitud de la API fueron exitosas
-			document.querySelector('.modal-toggle').checked = false;
+			isBadDescription = false;
+			const js = await fetch('/api/appoinments/create', {
+				method: 'POST',
+				body: JSON.stringify(appointment)
+			});
+
+			if (js.status == 200) {
+				appointmentForm = {
+					date: '',
+					hour: '',
+					description: '',
+					id_doctor: '',
+					id_user: ''
+				};
+				isVisible = false;
+			}
 		} catch (error) {
-			console.error(error.errors);
+			if (error instanceof ZodError) {
+				error.issues.forEach((err) => {
+					if (err.path[0] === 'description') {
+						isBadDescription = true;
+						messageDescription = err.message;
+					}
+				});
+			}
 		}
-	}
-
-
-	let forms = [];
-	onMount(async () => {
-		forms = await fetch(`api/appoinments/get-all?key=${localStorage.getItem('key')}`).then((item) =>
-				item.json()
-		);
-	});
+	};
 </script>
 
-
-<label for="my-modal-3" class="btn">schedule now</label>
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<label for={`my-modal-${id}`} class="btn">schedule now</label>
+<input type="checkbox" id={`my-modal-${id}`} class="modal-toggle" bind:checked={isVisible} />
 
 <div class="modal">
 	<div class="modal-box relative">
-		<label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+		<label for={`my-modal-${id}`} class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 		<form on:submit={handleSubmit}>
+			<h1>{id}</h1>
 			<h1 class="title">Book Medical Appointment</h1>
 			<div class="form-control">
-				<label class="label">Fecha:</label>
-				<input class="input" type="date" name="date" required />
+				<label class="label" for="date">Fecha:</label>
+				<input class="input" type="date" name="date" required bind:value={appointmentForm.date} />
 			</div>
 			<div class="form-control">
-				<label class="label">Hora:</label>
-				<input class="input" type="time" name="hour" required />
+				<label class="label" for="hour">Hora:</label>
+				<input class="input" type="time" name="hour" required bind:value={appointmentForm.hour} />
 			</div>
 			<div class="form-control">
-				<label class="label">Descripción:</label>
-				<textarea class="textarea" name="description" rows="4"></textarea>
+				<label for="description" class="label">Descripción:</label>
+				<textarea
+					class="textarea"
+					class:textarea-error={isBadDescription}
+					name="description"
+					rows="4"
+					bind:value={appointmentForm.description}
+				/>
+				{#if isBadDescription}
+					<label for="description" class="label">
+						<span class="label-text-alt text-red-500">{messageDescription}</span>
+					</label>
+				{/if}
 			</div>
 
-			<button type="submit" class="btn2">Schedule</button>
-
+			<div class="modal-action">
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<!-- <label for="my-modal-3" class="btn" on:click={handleSubmit}>Submit</label> -->
+				<button type="submit" class="btn btn-sm right-2 top-2">Schedule</button>
+			</div>
 		</form>
 	</div>
 </div>
@@ -128,17 +157,5 @@
 		margin-top: 0.5rem;
 		background-color: #79ccd1;
 		color: #fff;
-	}
-	.btn2 {
-		display: block;
-		margin-top: 1.5rem;
-		background-color: #79ccd1;
-		color: #fff;
-		border: none;
-		border-radius: 0.25rem;
-		padding: 0.5rem 1rem;
-		font-size: 1rem;
-		cursor: pointer;
-		margin-left: 15rem;
 	}
 </style>

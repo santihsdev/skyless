@@ -2,6 +2,6 @@
 	import TableReminder from '$lib/components/TableReminder.svelte';
 </script>
 
-<div class="sm:flex">
+<div class="container mx-auto p-10">
 	<TableReminder />
 </div>

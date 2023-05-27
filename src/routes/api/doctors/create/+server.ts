@@ -1,9 +1,9 @@
 import { client } from '$lib/database/connector';
 import { doctor_table } from '$lib/database/database-variables';
 import { json } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandler } from '../$types';
 
-/** @type {import('./$types').RequestHandler} */
-export async function POST({ request }) {
+export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 	const { id, name, lastName, cellphone, speciality, email } = await request.json();
 
 	const result = await client.query(
@@ -14,4 +14,4 @@ export async function POST({ request }) {
 	console.log(result);
 
 	return json(result.rowCount);
-}
+};

@@ -1,5 +1,5 @@
 export interface Reminder {
-	id_appointment: number;
+	id_appointment?: number;
 	date: string;
 	hour: string;
 	description: string;
