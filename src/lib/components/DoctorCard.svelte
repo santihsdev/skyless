@@ -27,6 +27,7 @@
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
 			<br />
+			<label for={`my-modal-${id}`} class="btn">schedule now</label>
 			<ScheduleFormClientMedic {id} />
 		</div>
 	</div>
