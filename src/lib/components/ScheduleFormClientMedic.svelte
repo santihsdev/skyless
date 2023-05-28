@@ -6,12 +6,13 @@
 
 	let isBadDescription: boolean = false;
 	let messageDescription: string = '';
-	let isVisible: boolean;
+	export let isVisible: boolean = false;
+	export let isEdit: boolean = false;
 
 	$: isBadDescription;
 	$: console.log(isVisible);
 
-	let appointmentForm: Reminder = {
+	export let appointmentForm: Reminder = {
 		date: '',
 		hour: '',
 		description: '',
@@ -19,27 +20,53 @@
 		id_user: ''
 	};
 
+	$: console.log(appointmentForm);
+
+	const restartValues = () => {
+		appointmentForm = {
+			date: '',
+			hour: '',
+			description: '',
+			id_doctor: '',
+			id_user: ''
+		};
+		isVisible = false;
+	};
+
+	const createAppoinment = async (appointment: Reminder) => {
+		const js = await fetch('/api/appoinments/create', {
+			method: 'POST',
+			body: JSON.stringify(appointment)
+		});
+
+		if (js.status == 200) {
+			restartValues();
+		}
+	};
+
+	const editAppointment = async (appointment: Reminder) => {
+		const js = await fetch('/api/appoinments/update', {
+			method: 'POST',
+			body: JSON.stringify(appointment)
+		});
+
+		if (js.status == 200) {
+			restartValues();
+		}
+	};
+
 	const handleSubmit = async () => {
 		try {
-			appointmentForm.id_doctor = id;
-			appointmentForm.id_user = localStorage.getItem('key') ?? '';
-			const appointment: Reminder = appointmentSchema.parse(appointmentForm);
-
 			isBadDescription = false;
-			const js = await fetch('/api/appoinments/create', {
-				method: 'POST',
-				body: JSON.stringify(appointment)
-			});
-
-			if (js.status == 200) {
-				appointmentForm = {
-					date: '',
-					hour: '',
-					description: '',
-					id_doctor: '',
-					id_user: ''
-				};
-				isVisible = false;
+			if (isEdit) {
+				appointmentForm.id_appointment = parseInt(id);
+				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
+				await editAppointment(appointment);
+			} else {
+				appointmentForm.id_doctor = id;
+				appointmentForm.id_user = localStorage.getItem('key') ?? '';
+				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
+				await createAppoinment(appointment);
 			}
 		} catch (error) {
 			if (error instanceof ZodError) {
@@ -54,7 +81,7 @@
 	};
 </script>
 
-<label for={`my-modal-${id}`} class="btn">schedule now</label>
+<!-- <label for={`my-modal-${id}`} class="btn">schedule now</label> -->
 <input type="checkbox" id={`my-modal-${id}`} class="modal-toggle" bind:checked={isVisible} />
 
 <div class="modal">
@@ -90,7 +117,13 @@
 			<div class="modal-action">
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- <label for="my-modal-3" class="btn" on:click={handleSubmit}>Submit</label> -->
-				<button type="submit" class="btn btn-sm right-2 top-2">Schedule</button>
+				<button type="submit" class="btn btn-sm right-2 top-2">
+					{#if isEdit}
+						Edit
+					{:else}
+						Schedule
+					{/if}
+				</button>
 			</div>
 		</form>
 	</div>
