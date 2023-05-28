@@ -7,5 +7,6 @@ export const appointmentSchema = z.object({
 		message: 'Description small'
 	}),
 	id_doctor: z.string().nonempty('El id_doctor es requerido.'),
-	id_user: z.string().nonempty('El id_user es requerido.')
+	id_user: z.string().nonempty('El id_user es requerido.'),
+	id_appointment: z.number().optional()
 });

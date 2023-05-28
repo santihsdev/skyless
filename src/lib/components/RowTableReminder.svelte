@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import ScheduleFormClientMedic from './ScheduleFormClientMedic.svelte';
 	let isDone: boolean = false;
 	export let idDoctor: string = '0';
 	export let idUser: string = '0';
@@ -10,6 +11,12 @@
 
 	let nameDoctor: string;
 	let speciality: string;
+
+	let formatedDate: string = new Date(date).toISOString().split('T')[0];
+	let formatedHour = hour.slice(0, 5);
+
+	let isVisibleForm: boolean;
+	$: isVisibleForm;
 
 	async function deleteAppointment(id_appointment: number) {
 		const response = await fetch('/api/appoinments/delete', {
@@ -24,6 +31,11 @@
 
 		return response.json();
 	}
+
+	const handleShowForm = () => {
+		console.log('click');
+		isVisibleForm = !isVisibleForm;
+	};
 
 	onMount(async () => {
 		const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
@@ -59,7 +71,7 @@
 	</td>
 	<td>{description}</td>
 	<th>
-		<button class="my-button">Edit</button>
+		<button class="my-button" on:click={handleShowForm}>Edit</button>
 		<button class="delete-btn" on:click={() => deleteAppointment(id_appointment)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +94,20 @@
 			</svg>
 		</button>
 	</th>
+	{#if isVisibleForm}
+		<ScheduleFormClientMedic
+			isEdit={true}
+			id={id_appointment + ''}
+			isVisible={isVisibleForm}
+			appointmentForm={{
+				date: formatedDate,
+				hour: formatedHour,
+				description: description,
+				id_doctor: idDoctor,
+				id_user: idUser
+			}}
+		/>
+	{/if}
 </tr>
 
 <style>
