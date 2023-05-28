@@ -10,6 +10,7 @@
 		const resp = await fetch('/api/specialities');
 		const js: Speciality[] = await resp.json();
 		specilities = js;
+		console.log(specilities);
 	});
 
 	let nameDoctor = '';
@@ -59,15 +60,16 @@
 </div>
 <div class="flex flex-col min-h-screen">
 	{#if isSearch}
-		<div class="pt-8 pl-12 pr-20 sm:ml-64">
-			<h1>you search: {nameDoctor}</h1>
+		<div>
+			<!-- <h1>you search: {nameDoctor}</h1>
 			{#each doctors as { name }}
 				<h1>{name}</h1>
-			{/each}
+			{/each} -->
+			<DoctorList isOpen={true} specialityName={`Results for: "${nameDoctor}"`} doctors={doctors}/>
 		</div>
 	{:else}
 		{#each specilities as { id, name } (id)}
-			<DoctorList isOpen={true} specialityName={name} speciliatyId={id} />
+			<DoctorList isOpen={true} specialityName={name} specialityPath={`/api/doctors/speciality?id=${id}`}/>
 		{/each}
 	{/if}
 </div>

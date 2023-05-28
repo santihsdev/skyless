@@ -4,11 +4,11 @@
 	import type { Doctor } from '$lib/types/doctor';
 
 	export let specialityName: string = 'Default';
-	export let speciliatyId: string = 'id';
+	export let specialityPath: string = '';
 	export let isOpen: boolean = false;
-	let doctors: Doctor[] = [];
+	export let doctors: Doctor[] = [];
 	onMount(async () => {
-		let resp = await fetch(`/api/doctors/speciality?id=${speciliatyId}`);
+		let resp = await fetch(`${specialityPath}`);
 		doctors = await resp.json();
 		console.log(doctors);
 	});
