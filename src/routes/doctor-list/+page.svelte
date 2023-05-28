@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DoctorList from '$lib/components/DoctorList.svelte';
 	import type { Speciality } from '$lib/types/speciality';
+	import type { Doctor } from '$lib/types/doctor';
 	import { onMount } from 'svelte';
 	import SearchIcon from '../../icons/SearchIcon.svelte';
 
@@ -13,6 +14,7 @@
 
 	let nameDoctor = '';
 	let isSearch = false;
+	let doctors: Doctor[] = [];
 
 	const searchDoctor = async () => {
 		isSearch = nameDoctor === '' ? false : true;
@@ -20,8 +22,9 @@
 		console.log(nameDoctor);
 
 		const resp = await fetch(`/api/doctors/search?name=${nameDoctor}`);
-		const json = await resp.json();
-		console.log(json);
+		const json: Doctor[] = await resp.json();
+		doctors = json;
+		console.log(doctors);
 	};
 </script>
 
@@ -56,7 +59,12 @@
 </div>
 <div class="flex flex-col min-h-screen">
 	{#if isSearch}
-		<h1>hello</h1>
+		<div class="pt-8 pl-12 pr-20 sm:ml-64">
+			<h1>you search: {nameDoctor}</h1>
+			{#each doctors as { name }}
+				<h1>{name}</h1>
+			{/each}
+		</div>
 	{:else}
 		{#each specilities as { id, name } (id)}
 			<DoctorList isOpen={true} specialityName={name} speciliatyId={id} />
