@@ -2,10 +2,13 @@ import '@testing-library/jest-dom';
 import matchers from '@testing-library/jest-dom/matchers';
 import { expect, vi } from 'vitest';
 import type { Navigation, Page } from '@sveltejs/kit';
-import { readable } from 'svelte/store';
+import type { Subscriber } from 'svelte/store';
 import type * as environment from '$app/environment';
 import type * as navigation from '$app/navigation';
 import type * as stores from '$app/stores';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { server } from './mocks/server';
 
 // Add custom jest matchers
 expect.extend(matchers);
@@ -14,7 +17,8 @@ expect.extend(matchers);
 vi.mock('$app/environment', (): typeof environment => ({
 	browser: false,
 	dev: true,
-	prerendering: false
+	building: true,
+	version: ''
 }));
 
 // Mock SvelteKit runtime module $app/navigation
@@ -25,51 +29,66 @@ vi.mock('$app/navigation', (): typeof navigation => ({
 	goto: () => Promise.resolve(),
 	invalidate: () => Promise.resolve(),
 	invalidateAll: () => Promise.resolve(),
-	prefetch: () => Promise.resolve(),
-	prefetchRoutes: () => Promise.resolve()
+	preloadCode: () => Promise.resolve(),
+	preloadData: () => Promise.resolve()
 }));
 
-// Mock SvelteKit runtime module $app/stores
-vi.mock('$app/stores', (): typeof stores => {
-	const getStores = () => {
-		const navigating = readable<Navigation | null>(null);
-		const page = readable<Page>({
-			url: new URL('http://localhost'),
-			params: {},
-			route: {
-				id: null
-			},
-			status: 200,
-			error: null,
-			data: {},
-			form: undefined
-		});
-		const updated = { subscribe: readable(false).subscribe, check: () => false };
-
-		return { navigating, page, updated };
-	};
-
-	const page: typeof stores.page = {
-		subscribe(fn) {
+vi.mock('$app/stores', async () => {
+	const { readable, writable } = await import('svelte/store');
+	const getStores = () => ({
+		navigating: readable(null),
+		page: readable({ url: new URL('http://localhost'), params: {} }),
+		session: writable(null),
+		updated: readable(false)
+	});
+	/** @type {typeof import('$app/stores').page} */
+	const page = {
+		subscribe(fn: Subscriber<{ url: URL; params: {} }>) {
 			return getStores().page.subscribe(fn);
 		}
 	};
-	const navigating: typeof stores.navigating = {
-		subscribe(fn) {
+	/** @type {typeof import('$app/stores').navigating} */
+	const navigating = {
+		subscribe(fn: Subscriber<null>) {
 			return getStores().navigating.subscribe(fn);
 		}
 	};
-	const updated: typeof stores.updated = {
-		subscribe(fn) {
-			return getStores().updated.subscribe(fn);
-		},
-		check: () => false
+	/** @type {typeof import('$app/stores').session} */
+	const session = {
+		subscribe(fn: Subscriber<null>) {
+			return getStores().session.subscribe(fn);
+		}
 	};
-
+	/** @type {typeof import('$app/stores').updated} */
+	const updated = {
+		subscribe(fn: Subscriber<boolean>) {
+			return getStores().updated.subscribe(fn);
+		}
+	};
 	return {
 		getStores,
 		navigating,
 		page,
+		session,
 		updated
 	};
 });
+
+const posts = [
+	{
+		userId: 1,
+		id: 1,
+		title: 'first post title',
+		body: 'first post body'
+	}
+	// ...
+];
+
+beforeAll(() => server.listen());
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+
+// Clean up after the tests are finished.
+afterAll(() => server.close());
