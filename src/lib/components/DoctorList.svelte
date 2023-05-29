@@ -10,7 +10,6 @@
 	onMount(async () => {
 		let resp = await fetch(`${specialityPath}`);
 		doctors = await resp.json();
-		console.log(doctors);
 	});
 
 	const changeState = () => {

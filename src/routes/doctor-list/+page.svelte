@@ -10,7 +10,6 @@
 		const resp = await fetch('/api/specialities');
 		const js: Speciality[] = await resp.json();
 		specilities = js;
-		console.log(specilities);
 	});
 
 	let nameDoctor = '';
@@ -19,13 +18,10 @@
 
 	const searchDoctor = async () => {
 		isSearch = nameDoctor === '' ? false : true;
-		console.log('click');
-		console.log(nameDoctor);
 
 		const resp = await fetch(`/api/doctors/search?name=${nameDoctor}`);
 		const json: Doctor[] = await resp.json();
 		doctors = json;
-		console.log(doctors);
 	};
 </script>
 
@@ -62,10 +58,6 @@
 <div class="flex flex-col min-h-screen">
 	{#if isSearch}
 		<div>
-			<!-- <h1>you search: {nameDoctor}</h1>
-			{#each doctors as { name }}
-				<h1>{name}</h1>
-			{/each} -->
 			<DoctorList isOpen={true} specialityName={`Results for: "${nameDoctor}"`} doctors={doctors}/>
 		</div>
 	{:else}
