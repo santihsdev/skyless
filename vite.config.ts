@@ -9,6 +9,12 @@ export default defineConfig({
 	test: {
 		environment: 'jsdom',
 		globals: true,
-		setupFiles: ["tests/setupTest.ts"]
+		setupFiles: ['tests/setupTest.ts', 'tests/mocks/setup.ts'],
+		coverage: {
+			exclude: ['tests/setupTest.ts', 'tests/mocks']
+		},
+		deps: {
+			inline: [/msw/]
+		}
 	}
 });

@@ -6,9 +6,6 @@ import type { Subscriber } from 'svelte/store';
 import type * as environment from '$app/environment';
 import type * as navigation from '$app/navigation';
 import type * as stores from '$app/stores';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import { server } from './mocks/server';
 
 // Add custom jest matchers
 expect.extend(matchers);
@@ -39,7 +36,7 @@ vi.mock('$app/stores', async () => {
 		navigating: readable(null),
 		page: readable({ url: new URL('http://localhost'), params: {} }),
 		session: writable(null),
-		updated: readable(false)
+		updated: readable(false),
 	});
 	/** @type {typeof import('$app/stores').page} */
 	const page = {
@@ -73,22 +70,3 @@ vi.mock('$app/stores', async () => {
 		updated
 	};
 });
-
-const posts = [
-	{
-		userId: 1,
-		id: 1,
-		title: 'first post title',
-		body: 'first post body'
-	}
-	// ...
-];
-
-beforeAll(() => server.listen());
-
-// Reset any request handlers that we may add during the tests,
-// so they don't affect other tests.
-afterEach(() => server.resetHandlers());
-
-// Clean up after the tests are finished.
-afterAll(() => server.close());
