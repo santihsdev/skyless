@@ -16,7 +16,7 @@ describe('<SideMenu/>', () => {
 	test('should render the component <SideMenu /> with property Calendar', () => {
 		render(SideMenu);
 
-		expect(screen.getByText('Calendar')).toBeDefined();
+		expect(screen.getByText('Appointments')).toBeDefined();
 	});
 
 	test('should render the component <SideMenu /> with property Are you a Doctor?', () => {
