@@ -35,7 +35,7 @@
 				</a>
 			</li>
 			<li>
-				<label for="doctor" class="btn">Are you a doctor?</label>
+				<label for="doctor" class="btn">open modal</label>
 			</li>
 		</ul>
 	</div>
