@@ -6,5 +6,8 @@ export const handlers = [
 	}),
 	rest.get('/api/doctors', (req, res, ctx) => {
 		return res(ctx.status(200), ctx.json([]));
+	}),
+	rest.get('/api/doctors/read', (req, res, ctx) => {
+		return res(ctx.status(200), ctx.json({ name: 'hello', speciality: 'world' }));
 	})
 ];

@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/svelte';
-import DoctorList from '../../../src/lib/components/DoctorList.svelte';
+import { render, screen, waitFor } from '@testing-library/svelte';
+import RowTableReminder from '../../../src/lib/components/RowTableReminder.svelte';
 
 describe('Test to prove API', () => {
 	test('should return 200', async () => {
-		render(DoctorList);
+		render(RowTableReminder);
 
-		expect(screen.getByText('Default')).toBeDefined();
+		expect(await screen.getByText('Default')).toBeDefined();
+		screen.debug()
 	});
 });
