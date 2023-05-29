@@ -11,7 +11,7 @@ describe('DoctorCard component', () => {
 			}
 		});
 
-		expect(getByText('Dr. John Doe')).toBeTruthy();
+		expect(getByText('John Doe')).toBeTruthy();
 	});
 
     it('should render the correct link', () => {
