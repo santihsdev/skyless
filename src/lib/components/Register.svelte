@@ -7,7 +7,7 @@
 	import { ZodError } from 'zod';
 
 	let isClose: boolean;
-	$: console.log(isClose);
+	$: console.log('Show doctor modal', isClose);
 
 	let specialitySelected: string;
 	let genderSelected: string;
