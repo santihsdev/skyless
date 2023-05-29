@@ -3,7 +3,7 @@
 
 	export let id: string = '';
 	export let name: string = 'Default';
-	export let lastName: string = 'Default';
+	export let lastName: string = '';
 	export let speciality: string = 'Speciality';
 	export let cellphone: string = '000000000';
 </script>
@@ -17,7 +17,7 @@
 		</div>
 	</figure>
 	<div class="card-body">
-		<h2 class="card-title">Dr. {name} {lastName}</h2>
+		<h2 class="card-title">{name} {lastName}</h2>
 		<p>
 			<b>Specialities:</b>
 			{speciality}
