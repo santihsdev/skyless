@@ -6,6 +6,5 @@ describe('Test to prove API', () => {
 		render(RowTableReminder);
 
 		expect(await screen.getByText('Default')).toBeDefined();
-		screen.debug()
 	});
 });

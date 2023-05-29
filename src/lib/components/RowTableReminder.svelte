@@ -4,7 +4,7 @@
 	let isDone: boolean = false;
 	export let idDoctor: string = '0';
 	export let idUser: string = '0';
-	export let date: string = '00/00/00';
+	export let date: string = '01-01-00';
 	export let hour: string = '00:00';
 	export let description: string = 'Default';
 	export let id_appointment: number = 0;
