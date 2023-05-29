@@ -214,3 +214,6 @@ the reminders are in the page `/patient/id/reminder`
 ![Untitled](README%20215ebc0551504b14b1c67e82333a7e40/Untitled%2012.png)
 
 At the moment is possible to add and delete reminders.
+
+
+
