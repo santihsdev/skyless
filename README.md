@@ -30,6 +30,8 @@ To deploy this project run
 
 npm install
 
+npm install zod 
+
 sudo docker-compose up
 
 ```
@@ -43,6 +45,9 @@ To run this project, you will need to add the following environment variables to
 `postgres`
 
 `keycloack`
+
+`flywat`
+
 
 ## Authors
 
@@ -72,12 +77,12 @@ To run this project, you will need to add the following environment variables to
 
   - [x] Tarea: Implementar una página para un profesional de la salud con su información básica
 
-- [ ] Módulo de programación de citas
+- [x] Módulo de programación de citas
 
   - [x] Tarea: Implementar función para buscar y programar citas con profesionales de la salud
 
   - [x] Tarea: Permitir a los usuarios cancelar citas
-  - [ ] Tarea: Permitir a los usuarios reprogramar citas existentes
+  - [x] Tarea: Permitir a los usuarios reprogramar citas existentes
 
 - [ ] Módulo de recordatorios
 
@@ -101,7 +106,16 @@ Install dependencies
 npm install
 ```
 
+```bash
+npm install zod
+```
+
 Start the services
+
+```bash
+sudo docker-compose up
+```
+In order to load the data from the database we have to start the docker compose from the skyless/data-base/postgres/docker-compose.yml folder
 
 ```bash
 sudo docker-compose up
@@ -112,12 +126,6 @@ Start the page
 ```bash
 npm run dev
 ```
-
-### Course
-
-Course: https://www.notion.so/Desarrollo-Software-V-3afae970164e4aac92ff82eea7d79116
-
-Status: In progress
 
 # Keycloak
 
@@ -156,55 +164,6 @@ When entering the application it is necessary
 
 With all this set up is possible to use the Keycloak.
 
-# Database Postgresql
-
-It is also necessary to create 2 tables in postgres in the `keycloak` database, `appointment_form` and `doctor` tables are required to use the app
-
-```sql
--- Table: public.appointment_form
-
--- DROP TABLE IF EXISTS public.appointment_form;
-
-CREATE TABLE IF NOT EXISTS public.appointment_form
-(
-    id_appointment integer NOT NULL DEFAULT
-		nextval('appointment_form_id_appointment_seq'::regclass),
-    hour time with time zone,
-    description text COLLATE pg_catalog."default" NOT NULL,
-    date date NOT NULL,
-    id_doctor text COLLATE pg_catalog."default" NOT NULL,
-    id_user text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT appointment_form_pkey PRIMARY KEY (id_appointment)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.appointment_form
-    OWNER to keycloak;
-```
-
-```sql
--- Table: public.doctor
-
--- DROP TABLE IF EXISTS public.doctor;
-
-CREATE TABLE IF NOT EXISTS public.doctor
-(
-    id text COLLATE pg_catalog."default" NOT NULL,
-    name text COLLATE pg_catalog."default" NOT NULL,
-    first_name text COLLATE pg_catalog."default" NOT NULL,
-    last_name text COLLATE pg_catalog."default" NOT NULL,
-    cellphone text COLLATE pg_catalog."default" NOT NULL,
-    speciality text COLLATE pg_catalog."default",
-    email text COLLATE pg_catalog."default",
-    CONSTRAINT doctor_pkey PRIMARY KEY (id)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.doctor
-    OWNER to keycloak;
-```
 
 # How use the app
 
