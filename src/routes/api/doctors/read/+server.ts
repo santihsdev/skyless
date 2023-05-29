@@ -11,7 +11,6 @@ export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 		[id]
 	);
 
-	console.log(result.rowCount);
 	if (result.rowCount == 1) {
 		return json(result.rows[0]);
 	}

@@ -10,7 +10,5 @@ export async function POST({ request }) {
 		id_appointment
 	]);
 
-	console.log(result);
-
 	return json(result.rowCount);
 }

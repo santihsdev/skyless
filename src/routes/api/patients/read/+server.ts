@@ -13,7 +13,6 @@ export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 		}
 	});
 
-	console.log(resp.status);
 	const result = await resp.json();
 	if (resp.status == 200) {
 		return json({ ...result });

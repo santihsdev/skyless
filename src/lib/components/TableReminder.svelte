@@ -8,7 +8,6 @@
 		reminders = await fetch(`/api/appoinments/get-all?key=${localStorage.getItem('key')}`).then(
 			(item) => item.json()
 		);
-		console.log(reminders);
 	});
 </script>
 

@@ -10,7 +10,6 @@
 	export let isEdit: boolean = false;
 
 	$: isBadDescription;
-	$: console.log(isVisible);
 
 	export let appointmentForm: Reminder = {
 		date: '',
@@ -19,8 +18,6 @@
 		id_doctor: '',
 		id_user: ''
 	};
-
-	$: console.log(appointmentForm);
 
 	const restartValues = () => {
 		appointmentForm = {
