@@ -58,11 +58,15 @@
 <div class="flex flex-col min-h-screen">
 	{#if isSearch}
 		<div>
-			<DoctorList isOpen={true} specialityName={`Results for: "${nameDoctor}"`} doctors={doctors}/>
+			<DoctorList isOpen={true} specialityName={`Results for: "${nameDoctor}"`} {doctors} />
 		</div>
 	{:else}
 		{#each specilities as { id, name } (id)}
-			<DoctorList isOpen={true} specialityName={name} specialityPath={`/api/doctors/speciality?id=${id}`}/>
+			<DoctorList
+				isOpen={true}
+				specialityName={name}
+				specialityPath={`/api/doctors/speciality?id=${id}`}
+			/>
 		{/each}
 	{/if}
 </div>

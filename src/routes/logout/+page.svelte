@@ -18,7 +18,7 @@
 			localStorage.removeItem('token');
 			masterKey.update((value) => (value = 'key-default'));
 			masterToken.update((value) => (value = 'token-default'));
-			menuOpen.set(false)
+			menuOpen.set(false);
 			goto('/doctor-list');
 		}
 	});

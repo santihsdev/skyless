@@ -30,7 +30,7 @@ To deploy this project run
 
 npm install
 
-npm install zod 
+npm install zod
 
 sudo docker-compose up
 
@@ -47,7 +47,6 @@ To run this project, you will need to add the following environment variables to
 `keycloack`
 
 `flywat`
-
 
 ## Authors
 
@@ -115,6 +114,7 @@ Start the services
 ```bash
 sudo docker-compose up
 ```
+
 In order to load the data from the database we have to start the docker compose from the skyless/data-base/postgres/docker-compose.yml folder
 
 ```bash
@@ -163,7 +163,6 @@ When entering the application it is necessary
   - Here is necessary to enable the `Update profile` and `Update user locale`
 
 With all this set up is possible to use the Keycloak.
-
 
 # How use the app
 
@@ -214,6 +213,3 @@ the reminders are in the page `/patient/id/reminder`
 ![Untitled](README%20215ebc0551504b14b1c67e82333a7e40/Untitled%2012.png)
 
 At the moment is possible to add and delete reminders.
-
-
-

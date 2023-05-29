@@ -36,7 +36,7 @@ vi.mock('$app/stores', async () => {
 		navigating: readable(null),
 		page: readable({ url: new URL('http://localhost'), params: {} }),
 		session: writable(null),
-		updated: readable(false),
+		updated: readable(false)
 	});
 	/** @type {typeof import('$app/stores').page} */
 	const page = {

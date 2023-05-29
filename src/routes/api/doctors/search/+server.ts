@@ -6,9 +6,7 @@ import type { RequestEvent, RequestHandler } from '../$types';
 export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 	const name = url.searchParams.get('name') ?? '0';
 
-	const result = await client.query(
-    `SELECT * FROM ${doctor_table} WHERE name LIKE '%${name}%';`
-	);
+	const result = await client.query(`SELECT * FROM ${doctor_table} WHERE name LIKE '%${name}%';`);
 
 	return json(result.rows);
 };

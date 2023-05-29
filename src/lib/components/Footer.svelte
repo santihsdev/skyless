@@ -52,7 +52,8 @@
 		<hr class="border-white sm:mx-auto dark:border-gray-700 lg:my-2" />
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-				>© 2023 <a href="https://flowbite.com/" class="hover:underline">Skyless™</a>. All Rights Reserved.
+				>© 2023 <a href="https://flowbite.com/" class="hover:underline">Skyless™</a>. All Rights
+				Reserved.
 			</span>
 		</div>
 	</div>

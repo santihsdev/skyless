@@ -26,59 +26,59 @@ describe('Text components', () => {
 		expect(screen.getByText('Schedule')).toBeDefined();
 	});
 
-    test('renders text from Doctor Office Hours column', () => {
+	test('renders text from Doctor Office Hours column', () => {
 		render(DoctorProfile);
 
-        expect(screen.getByText('Thursday')).toBeDefined();
+		expect(screen.getByText('Thursday')).toBeDefined();
 		expect(screen.getByText('Friday')).toBeDefined();
 		expect(screen.getByText('Saturday')).toBeDefined();
 		expect(screen.getByText('Sunday')).toBeDefined();
 		expect(screen.getByText('Monday')).toBeDefined();
 		expect(screen.getByText('Tuesday')).toBeDefined();
 		expect(screen.getByText('Wednesday')).toBeDefined();
-    });
+	});
 });
 
 describe('Icon components', () => {
-    it('renders Bag SVG icon', () => {
-      // Render the Icon component
-        const { container } = render(DoctorProfile, {
-            props: BagIcon,
-        });
+	it('renders Bag SVG icon', () => {
+		// Render the Icon component
+		const { container } = render(DoctorProfile, {
+			props: BagIcon
+		});
 
-        const svgElement = container.querySelector('svg');
-        expect(svgElement).toBeInTheDocument();
-    });
+		const svgElement = container.querySelector('svg');
+		expect(svgElement).toBeInTheDocument();
+	});
 
-    it('renders Card icon', () => {
-        const { container } = render(DoctorProfile, {
-            props: CardIcon,
-        });
-        const svgElement = container.querySelector('svg');
-        expect(svgElement).toBeInTheDocument();
-    });
+	it('renders Card icon', () => {
+		const { container } = render(DoctorProfile, {
+			props: CardIcon
+		});
+		const svgElement = container.querySelector('svg');
+		expect(svgElement).toBeInTheDocument();
+	});
 
-    it('renders Clock SVG icon', () => {
-        const { container } = render(DoctorProfile, {
-            props: ClockIcon,
-        });
-        const svgElement = container.querySelector('svg');
-        expect(svgElement).toBeInTheDocument();
-    });
+	it('renders Clock SVG icon', () => {
+		const { container } = render(DoctorProfile, {
+			props: ClockIcon
+		});
+		const svgElement = container.querySelector('svg');
+		expect(svgElement).toBeInTheDocument();
+	});
 
-    it('renders Hat SVG icon', () => {
-        const { container } = render(DoctorProfile, {
-            props: HatIcon,
-        });
-        const svgElement = container.querySelector('svg');
-        expect(svgElement).toBeInTheDocument();
-    });
+	it('renders Hat SVG icon', () => {
+		const { container } = render(DoctorProfile, {
+			props: HatIcon
+		});
+		const svgElement = container.querySelector('svg');
+		expect(svgElement).toBeInTheDocument();
+	});
 
-    it('renders Phone SVG icon', () => {
-        const { container } = render(DoctorProfile, {
-            props: PhoneIcon,
-        });
-        const svgElement = container.querySelector('svg');
-        expect(svgElement).toBeInTheDocument();
-    });
+	it('renders Phone SVG icon', () => {
+		const { container } = render(DoctorProfile, {
+			props: PhoneIcon
+		});
+		const svgElement = container.querySelector('svg');
+		expect(svgElement).toBeInTheDocument();
+	});
 });
