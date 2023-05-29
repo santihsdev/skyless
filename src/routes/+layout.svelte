@@ -11,9 +11,9 @@
 	<header class="sticky top-0 z-50">
 		<Header />
 	</header>
-	<!-- {#if $menuOpen} -->
+	{#if $menuOpen}
 		<SideMenu />
-	<!-- {/if} -->
+	{/if}
 
 	<slot />
 
