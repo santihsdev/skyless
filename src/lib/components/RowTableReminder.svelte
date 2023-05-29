@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ScheduleFormClientMedic from './ScheduleFormClientMedic.svelte';
+	import avatar from '$lib/images/default.png';
 	let isDone: boolean = false;
 	export let idDoctor: string = '0';
 	export let idUser: string = '0';
@@ -55,7 +56,7 @@
 		<div class="flex items-center space-x-3">
 			<div class="avatar">
 				<div class="mask mask-squircle w-12 h-12">
-					<img src="./src/lib/images/default.png" alt="Avatar Tailwind CSS Component" />
+					<img src={avatar} alt="Avatar Tailwind CSS Component" />
 				</div>
 			</div>
 			<div>

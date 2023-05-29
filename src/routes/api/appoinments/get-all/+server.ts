@@ -1,9 +1,9 @@
 import { json } from '@sveltejs/kit';
 import { client } from '$lib/database/connector';
 import { appointment_table } from '$lib/database/database-variables';
+import type { RequestEvent, RequestHandler } from './$types';
 
-/** @type {import('./$types').RequestHandler} */
-export async function GET({ url }) {
+export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 	// log all headers
 	const idUser = url.searchParams.get('key') ?? 0;
 	if (idUser == 0) {
@@ -14,4 +14,4 @@ export async function GET({ url }) {
 	]);
 
 	return json(result.rows);
-}
+};

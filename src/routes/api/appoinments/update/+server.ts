@@ -11,7 +11,5 @@ export async function POST({ request }) {
 		[hour, description, date, id_doctor, id_user, id_appointment]
 	);
 
-	console.log(result);
-
 	return json(result.rowCount);
 }

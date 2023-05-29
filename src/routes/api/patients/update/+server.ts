@@ -18,8 +18,6 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 		body: JSON.stringify(userValues)
 	});
 
-	console.log(resp.status);
-
 	if (resp.status == 204) {
 		return json({ ok: resp.status });
 	}

@@ -15,7 +15,6 @@ export const GET: RequestHandler = async ({ url }) => {
 	});
 
 	const result = await resp.json();
-	console.log(result);
 
-	return json({ hello: 'world' });
+	return json({ result });
 };

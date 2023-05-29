@@ -24,7 +24,5 @@ export const POST: RequestHandler = async ({ request }: RequestEvent) => {
 		]
 	);
 
-	console.log(result);
-
 	return json(result.rowCount);
 };

@@ -59,10 +59,5 @@
 	{/each}
 
 	<!-- Put this part before </body> tag -->
-	<input type="checkbox" id="my-modal" class="modal-toggle" />
-	<div class="modal">
-		<div class="modal-box">
-			<Register />
-		</div>
-	</div>
+	<Register />
 </div>
