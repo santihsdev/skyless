@@ -1,6 +1,6 @@
 <script>
-	import { browser } from '$app/environment';
-	import { masterKey, masterToken } from '$lib/stores/store.js';
+	import { browser } from '$app/environment';1
+	import { masterKey, masterToken, menuOpen } from '$lib/stores/store.js';
 	import { Auth } from '$lib/ts/keycloak';
 	export let data;
 
@@ -14,6 +14,7 @@
 		if (key != null && token != null) {
 			masterKey.set(key ?? 'key-layout');
 			masterToken.set(token ?? 'token-layout');
+			menuOpen.set(true)
 		}
 	}
 </script>
