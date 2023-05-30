@@ -99,6 +99,7 @@
 				cleanInputs();
 				isClose = false;
 			} catch (error) {
+				cleanInputs();
 				if (error instanceof ZodError) {
 					console.log(error);
 
@@ -212,7 +213,7 @@
 				</div>
 				<div class="form-element">
 					<label class="label" for="doctor-code">
-						<span class="label-text">Gender</span>
+						<span class="label-text">Acess code</span>
 					</label>
 					<input
 						type="password"
