@@ -22,6 +22,18 @@ Tools:
 
 - Keycloack
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`docker`
+
+`postgres`
+
+`keycloack`
+
+`flywat`
+
 ## Deployment
 
 To deploy this project run
@@ -35,60 +47,6 @@ npm install zod
 sudo docker-compose up
 
 ```
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`docker`
-
-`postgres`
-
-`keycloack`
-
-`flywat`
-
-## Authors
-
-- [@santihsdev](https://github.com/santihsdev)
-
-- [@gabrielagonzalesv7](https://github.com/gabrielagonzalesv7)
-
-- [@agonzalesb107](https://github.com/agonzalesb107)
-
-- [@AlejandroEspinozaT](https://github.com/AlejandroEspinozaT)
-
-- [@MariaReneH](https://github.com/MariaReneH)
-
-- [@cris]()
-
-## Features
-
-- [x] Módulo de registro e inicio de sesión
-
-  - [x] Tarea: Implementar formulario de registro (usuarios, profesionales de salud)
-
-  - [x] Tarea: Implementar formulario de inicio de sesión
-
-- [x] Módulo de registro de citas
-
-  - [x] Tarea: Implementar una página de vista de todos los profesionales de salud registrados
-
-  - [x] Tarea: Implementar una página para un profesional de la salud con su información básica
-
-- [x] Módulo de programación de citas
-
-  - [x] Tarea: Implementar función para buscar y programar citas con profesionales de la salud
-
-  - [x] Tarea: Permitir a los usuarios cancelar citas
-  - [x] Tarea: Permitir a los usuarios reprogramar citas existentes
-
-- [ ] Módulo de recordatorios
-
-  - [ ] Tarea: Implementar función para enviar recordatorios de citas por correo electrónico o SMS
-
-  - [ ] Tarea: Permitir a los usuarios configurar sus preferencias de recordatorios
-
 ## Run Locally
 
 Clone the project
@@ -126,6 +84,47 @@ Start the page
 ```bash
 npm run dev
 ```
+
+## Authors
+
+- [@santihsdev](https://github.com/santihsdev)
+
+- [@gabrielagonzalesv7](https://github.com/gabrielagonzalesv7)
+
+- [@agonzalesb107](https://github.com/agonzalesb107)
+
+- [@AlejandroEspinozaT](https://github.com/AlejandroEspinozaT)
+
+- [@MariaReneH](https://github.com/MariaReneH)
+
+- [@cris](https://github.com/cristopherUwU)
+
+## Features
+
+- [x] Módulo de registro e inicio de sesión
+
+  - [x] Tarea: Implementar formulario de registro (usuarios, profesionales de salud)
+
+  - [x] Tarea: Implementar formulario de inicio de sesión
+
+- [x] Módulo de registro de citas
+
+  - [x] Tarea: Implementar una página de vista de todos los profesionales de salud registrados
+
+  - [x] Tarea: Implementar una página para un profesional de la salud con su información básica
+
+- [x] Módulo de programación de citas
+
+  - [x] Tarea: Implementar función para buscar y programar citas con profesionales de la salud
+
+  - [x] Tarea: Permitir a los usuarios cancelar citas
+  - [x] Tarea: Permitir a los usuarios reprogramar citas existentes
+
+- [ ] Módulo de recordatorios
+
+  - [ ] Tarea: Implementar función para enviar recordatorios de citas por correo electrónico o SMS
+
+  - [ ] Tarea: Permitir a los usuarios configurar sus preferencias de recordatorios
 
 # Keycloak
 
