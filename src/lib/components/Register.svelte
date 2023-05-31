@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { doctorSchema } from '$lib/schemas/doctorSchema';
 	import { masterToken, masterKey } from '$lib/stores/store';
-	import type { Doctor } from '$lib/types/doctor';
+	import useRegisterForm from '$lib/ts/useRegisterForm';
 	import type { Speciality } from '$lib/types/speciality';
 	import { onMount } from 'svelte';
 	import { ZodError } from 'zod';
@@ -11,30 +12,6 @@
 
 	let specialitySelected: string;
 	let genderSelected: string;
-	let doctor: Doctor = {
-		cellphone: '',
-		email: '',
-		lastName: '',
-		name: '',
-		speciality: '',
-		ci: '',
-		gender: '',
-		id: ''
-	};
-
-	let errors = {
-		speciality: false,
-		cellphone: false,
-		ci: false,
-		gender: false
-	};
-
-	let messages = {
-		speciality: '',
-		cellphone: '',
-		ci: '',
-		gender: ''
-	};
 
 	let doctorCode = 1234;
 	let key: string;
@@ -45,23 +22,10 @@
 	let token: string;
 	masterToken.subscribe((value) => (token = value));
 
-	const cleanInputs = () => {
-		errors = { cellphone: false, ci: false, gender: false, speciality: false };
-		messages = { cellphone: '', ci: '', gender: '', speciality: '' };
-		doctor = {
-			cellphone: '',
-			ci: '',
-			email: '',
-			gender: '',
-			lastName: '',
-			name: '',
-			speciality: ''
-		};
-	};
+	const { doctor, errors, messages, cleanAll, cleanError, cleanMessage } = useRegisterForm();
 
 	const handleSubmit = async () => {
 		console.log('click');
-		// return isClose = false;
 
 		if (doctorCode === 1234) {
 			const resp = await fetch(`/api/patients/read?id=${key}&token=${token}`);
@@ -96,16 +60,18 @@
 					})
 				});
 
-				cleanInputs();
+				cleanAll();
 				isClose = false;
+				goto(`/doctor/${id}`);
 			} catch (error) {
-				cleanInputs();
+				cleanError(errors);
+				cleanMessage(messages);
 				if (error instanceof ZodError) {
 					console.log(error);
 
 					error.issues.forEach((err) => {
-						errors[err.path[0]] = true;
-						messages[err.path[0]] = err.message;
+						errors[err.path[0] as keyof typeof errors] = true;
+						messages[err.path[0] as keyof typeof messages] = err.message;
 					});
 					console.log(errors);
 					console.log(messages);
