@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ScheduleFormClientMedic from '$lib/components/ScheduleFormClientMedic.svelte';
+	import { menuOpen } from '$lib/stores/store';
 
 	export let id: string = '';
 	export let name: string = 'Default';
@@ -27,7 +28,9 @@
 			<br />
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
 			<br />
-			<label for={`my-modal-${id}`} class="btn">schedule now</label>
+			{#if $menuOpen}
+				<label for={`my-modal-${id}`} class="btn">Schedule now</label>
+			{/if}
 			<ScheduleFormClientMedic {id} />
 		</div>
 	</div>
