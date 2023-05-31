@@ -87,7 +87,8 @@
 
 <div class="modal">
 	<div class="modal-box relative">
-		<label for={`my-modal-${id}`} class="btn btn-primary btn-circle absolute right-2 top-2">✕</label>
+		<label for={`my-modal-${id}`} class="btn btn-primary btn-circle absolute right-2 top-2">✕</label
+		>
 		<form on:submit={handleSubmit}>
 			<h1>{id}</h1>
 			<h1 class="title">Book Medical Appointment</h1>
@@ -187,5 +188,4 @@
 		resize: vertical;
 		background-color: white;
 	}
-
 </style>

@@ -210,6 +210,4 @@
 		resize: vertical;
 		background-color: white;
 	}
-
-
 </style>

@@ -150,10 +150,24 @@
 						</div>
 					</div>
 					<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-						<button type="button" class="btn btn-primary" style="margin-left: 3%;" on:click={() => { deleteAppointment(id_appointment); isConfirmationModalVisible = false; }}>
+						<button
+							type="button"
+							class="btn btn-primary"
+							style="margin-left: 3%;"
+							on:click={() => {
+								deleteAppointment(id_appointment);
+								isConfirmationModalVisible = false;
+							}}
+						>
 							Confirmar
 						</button>
-						<button type="button" class="btn btn-primary" on:click={() => { isConfirmationModalVisible = false; }}>
+						<button
+							type="button"
+							class="btn btn-primary"
+							on:click={() => {
+								isConfirmationModalVisible = false;
+							}}
+						>
 							Cancelar
 						</button>
 					</div>
@@ -188,7 +202,7 @@
 	.delete-btn {
 		background-color: #e74c3c;
 		position: relative;
-  		top: 4px;
+		top: 4px;
 		color: white;
 		border: none;
 		border-radius: 5px;
