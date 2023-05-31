@@ -79,7 +79,7 @@
 	<td>{description}</td>
 	<th>
 		<button class="btn btn-primary" on:click={handleShowForm}>Edit</button>
-		<button class="delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
+		<button class=" delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="icon icon-tabler icon-tabler-trash"
@@ -193,10 +193,12 @@
 
 	.delete-btn {
 		background-color: #e74c3c;
+		position: relative;
+  		top: 4px;
 		color: white;
 		border: none;
-		border-radius: 2px;
-		padding: 8px 12px;
+		border-radius: 5px;
+		padding: 15px 20px;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 		transition: background-color 0.3s ease;
 	}
