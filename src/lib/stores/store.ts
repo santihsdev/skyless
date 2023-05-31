@@ -5,3 +5,4 @@ export const masterKey = writable('key-default');
 export const classAuth = writable();
 export const masterToken = writable('token-default');
 export const menuOpen = writable(false);
+export const areYouDoctor = writable(false);

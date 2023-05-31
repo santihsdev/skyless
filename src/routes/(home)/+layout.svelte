@@ -1,7 +1,7 @@
 <script>
 	import { browser } from '$app/environment';
 	1;
-	import { masterKey, masterToken, menuOpen } from '$lib/stores/store.js';
+	import { masterKey, masterToken, menuOpen } from '$lib/stores/store';
 	import { Auth } from '$lib/ts/keycloak';
 	export let data;
 

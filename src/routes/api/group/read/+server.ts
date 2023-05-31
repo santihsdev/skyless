@@ -16,5 +16,5 @@ export const GET: RequestHandler = async ({ url }) => {
 
 	const result = await resp.json();
 
-	return json({ result });
+	return json(result);
 };

@@ -1,5 +1,18 @@
 <script>
+	import { onMount } from 'svelte';
 	import Carousel from './Carousel.svelte';
+	import { areYouDoctor, masterKey } from '$lib/stores/store';
+	import { goto } from '$app/navigation';
+
+	onMount(async () => {
+		const resp = await fetch(`/api/doctors/read?id=${$masterKey}`);
+		const js = await resp.json();
+		if (Object.keys(js).length === 0) {
+			goto(`/patient/${$masterKey}`);
+			return;
+		}
+		areYouDoctor.set(true);
+	});
 </script>
 
 <Carousel />
