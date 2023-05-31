@@ -17,20 +17,20 @@ export class Auth {
 			//redirectUri: 'http://localhost:5173/client/hello'
 		});
 
-		fetch('/api/group/add', {
-			method: 'POST',
-			body: JSON.stringify({
-				token: this.client.token,
-				idUser: this.client.subject,
-				groupName: 'patient'
-			})
-		});
-
 		if (browser) {
 			localStorage.setItem('key', this.client.subject ?? 'from-keycloak');
 			localStorage.setItem('token', this.client.token ?? 'from-keycloak');
 		}
-		await goto(`/patient/${this.client.subject}`);
+		const response = await fetch(
+			`/api/group/read?id=${this.client.subject}&token=${this.client.token}`
+		);
+		const count = await response.json();
+
+		if (count == 1) {
+			await goto(`/patient/${this.client.subject}`);
+		} else {
+			await goto(`/doctor/${this.client.subject}`);
+		}
 	}
 
 	login(): void {

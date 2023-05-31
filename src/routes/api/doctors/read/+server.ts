@@ -15,6 +15,5 @@ export const GET: RequestHandler = async ({ url }: RequestEvent) => {
 		return json(result.rows[0]);
 	}
 
-	error(404);
-	return json([]);
+	return json({});
 };

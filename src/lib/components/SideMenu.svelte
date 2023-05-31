@@ -1,8 +1,7 @@
 <script>
 	import ChatIcon from '../../icons/ChatIcon.svelte';
 	import CalendarIcon from '../../icons/CalendarIcon.svelte';
-	import Register from './Register.svelte';
-	import { masterKey } from '$lib/stores/store';
+	import { areYouDoctor, masterKey } from '$lib/stores/store';
 </script>
 
 <aside
@@ -34,9 +33,11 @@
 					<span class="flex-1 ml-3 whitespace-nowrap">Appointments</span>
 				</a>
 			</li>
-			<li>
-				<label for="doctor" class="btn">Are you a doctor?</label>
-			</li>
+			{#if !$areYouDoctor}
+				<li>
+					<label for="doctor" class="btn">Are you a doctor?</label>
+				</li>
+			{/if}
 		</ul>
 	</div>
 </aside>
