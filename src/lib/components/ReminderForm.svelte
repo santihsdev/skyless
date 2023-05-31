@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { appointmentSchema } from '$lib/schemas/appointmentSchema';
+	import { storeReminders } from '$lib/stores/store';
+	import { updateReminders } from '$lib/ts/useUpdateReminder';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
 	export let id = '';
@@ -59,6 +62,7 @@
 				appointmentForm.id_appointment = parseInt(id);
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
 				await editAppointment(appointment);
+				await updateReminders(appointment.id_user);
 			} else {
 				appointmentForm.id_doctor = id;
 				appointmentForm.id_user = localStorage.getItem('key') ?? '';

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import ScheduleFormClientMedic from './ScheduleFormClientMedic.svelte';
+	import ReminderForm from './ReminderForm.svelte';
 	import avatar from '$lib/images/default.png';
+	import { updateReminders } from '$lib/ts/useUpdateReminder';
 
 	let isDone: boolean = false;
 	export let idDoctor: string = '0';
@@ -31,6 +32,8 @@
 				id_appointment: id_appointment
 			})
 		});
+
+		updateReminders(idUser);
 
 		return response.json();
 	}
@@ -68,25 +71,26 @@
 		</div>
 	</td>
 	<td>
-		{hour}
+		{hour.slice(0, 5)}
+		{parseInt(hour.split(':')[0]) > 12 ? 'p.m.' : 'a.m.'}
 		<br />
-		<span class="badge badge-ghost badge-sm">{date}</span>
+		<span class="badge badge-ghost badge-sm">{new Date(date).toISOString().split('T')[0]}</span>
 	</td>
 	<td>{description}</td>
 	<th>
 		<button class="my-button" on:click={handleShowForm}>Edit</button>
 		<button class="delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
 			<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-trash"
-					width="19"
-					height="19"
-					viewBox="0 0 24 24"
-					stroke-width="5.5"
-					stroke="#2c3e50"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+				xmlns="http://www.w3.org/2000/svg"
+				class="icon icon-tabler icon-tabler-trash"
+				width="19"
+				height="19"
+				viewBox="0 0 24 24"
+				stroke-width="5.5"
+				stroke="#2c3e50"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 			>
 				<path stroke="none" d="M0 0h24v24H0z" />
 				<line x1="4" y1="7" x2="20" y2="7" />
@@ -98,11 +102,11 @@
 		</button>
 	</th>
 	{#if isVisibleForm}
-		<ScheduleFormClientMedic
-				isEdit={true}
-				id={id_appointment + ''}
-				isVisible={isVisibleForm}
-				appointmentForm={{
+		<ReminderForm
+			isEdit={true}
+			id={id_appointment + ''}
+			isVisible={isVisibleForm}
+			appointmentForm={{
 				date: formatedDate,
 				hour: formatedHour,
 				description: description,
@@ -112,11 +116,25 @@
 		/>
 	{/if}
 	{#if isConfirmationModalVisible}
-		<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-			<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-				<div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-				<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-				<div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+		<div
+			class="fixed z-10 inset-0 overflow-y-auto"
+			aria-labelledby="modal-title"
+			role="dialog"
+			aria-modal="true"
+		>
+			<div
+				class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+			>
+				<div
+					class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+					aria-hidden="true"
+				/>
+				<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
+					>&#8203;</span
+				>
+				<div
+					class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+				>
 					<div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 						<div class="sm:flex sm:items-start">
 							<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -132,10 +150,23 @@
 						</div>
 					</div>
 					<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-						<button type="button" class="delete-btn" on:click={() => { deleteAppointment(id_appointment); isConfirmationModalVisible = false; }}>
+						<button
+							type="button"
+							class="delete-btn"
+							on:click={() => {
+								deleteAppointment(id_appointment);
+								isConfirmationModalVisible = false;
+							}}
+						>
 							Confirmar
 						</button>
-						<button type="button" class="my-button" on:click={() => { isConfirmationModalVisible = false; }}>
+						<button
+							type="button"
+							class="my-button"
+							on:click={() => {
+								isConfirmationModalVisible = false;
+							}}
+						>
 							Cancelar
 						</button>
 					</div>
