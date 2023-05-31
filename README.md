@@ -22,17 +22,6 @@ Tools:
 
 - Keycloack
 
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`docker`
-
-`postgres`
-
-`keycloack`
-
-`flywat`
 
 ## Authors
 
@@ -46,7 +35,7 @@ To run this project, you will need to add the following environment variables to
 
 - [@MariaReneH](https://github.com/MariaReneH)
 
-- [@cris]()
+- [@cris](https://github.com/cristopherUwU)
 
 ## Features
 
