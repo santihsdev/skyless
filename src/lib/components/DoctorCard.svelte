@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ScheduleFormClientMedic from '$lib/components/ScheduleFormClientMedic.svelte';
+	import ReminderForm from '$lib/components/ReminderForm.svelte';
 	import { menuOpen } from '$lib/stores/store';
 
 	export let id: string = '';
@@ -31,7 +31,7 @@
 			{#if $menuOpen}
 				<label for={`my-modal-${id}`} class="btn">Schedule now</label>
 			{/if}
-			<ScheduleFormClientMedic {id} />
+			<ReminderForm {id} />
 		</div>
 	</div>
 </div>

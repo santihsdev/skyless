@@ -1,7 +1,7 @@
 <script lang="ts">
-	import TableReminder from '$lib/components/TableReminder.svelte';
+	import ReminderTable from '$lib/components/ReminderTable.svelte';
 </script>
 
 <div class="flex flex-col min-h-screen">
-	<TableReminder />
+	<ReminderTable />
 </div>

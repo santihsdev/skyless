@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import ScheduleFormClientMedic from './ScheduleFormClientMedic.svelte';
+	import ReminderForm from './ReminderForm.svelte';
 	import avatar from '$lib/images/default.png';
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
 
@@ -102,7 +102,7 @@
 		</button>
 	</th>
 	{#if isVisibleForm}
-		<ScheduleFormClientMedic
+		<ReminderForm
 			isEdit={true}
 			id={id_appointment + ''}
 			isVisible={isVisibleForm}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import RowTableReservation from '$lib/components/RowTableReminder.svelte';
+	import ReminderElement from '$lib/components/ReminderElement.svelte';
 	import { storeReminders } from '$lib/stores/store';
 	import type { Reminder } from '$lib/types/reminder';
 	import { onMount } from 'svelte';
@@ -32,7 +32,7 @@
 				</thead>
 				<tbody>
 					{#each reminders as { date, description, id_doctor, id_user, hour, id_appointment } (id_appointment)}
-						<RowTableReservation
+						<ReminderElement
 							{id_appointment}
 							{date}
 							{description}
