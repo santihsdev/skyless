@@ -29,7 +29,7 @@
 			<a class="link link-hover link-info"><i class="bi bi-telephone-fill" />{cellphone}</a>
 			<br />
 			{#if $menuOpen}
-				<label for={`my-modal-${id}`} class="btn">Schedule now</label>
+				<label for={`my-modal-${id}`} class="btn btn-primary">Schedule now</label>
 			{/if}
 			<ReminderForm {id} />
 		</div>

@@ -148,7 +148,7 @@
 			<label class="label">Descripción:</label>
 			<textarea class="textarea" name="descripcion" rows="4" />
 		</div>
-		<button type="submit" class="btn2">Schedule</button>
+		<button type="submit" class="btn btn-primary">Schedule</button>
 	</form>
 </div>
 
@@ -211,21 +211,5 @@
 		background-color: white;
 	}
 
-	.btn {
-		background-color: #79ccd1;
-		color: #fff;
-	}
 
-	.btn2 {
-		display: block;
-		margin-top: 1.5rem;
-		background-color: #79ccd1;
-		color: #fff;
-		border: none;
-		border-radius: 0.25rem;
-		padding: 0.5rem 1rem;
-		font-size: 1rem;
-		cursor: pointer;
-		margin-left: 90%;
-	}
 </style>

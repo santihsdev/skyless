@@ -78,8 +78,8 @@
 	</td>
 	<td>{description}</td>
 	<th>
-		<button class="my-button" on:click={handleShowForm}>Edit</button>
-		<button class="delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
+		<button class="btn btn-primary" on:click={handleShowForm}>Edit</button>
+		<button class=" delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="icon icon-tabler icon-tabler-trash"
@@ -150,23 +150,10 @@
 						</div>
 					</div>
 					<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-						<button
-							type="button"
-							class="delete-btn"
-							on:click={() => {
-								deleteAppointment(id_appointment);
-								isConfirmationModalVisible = false;
-							}}
-						>
+						<button type="button" class="btn btn-primary" style="margin-left: 3%;" on:click={() => { deleteAppointment(id_appointment); isConfirmationModalVisible = false; }}>
 							Confirmar
 						</button>
-						<button
-							type="button"
-							class="my-button"
-							on:click={() => {
-								isConfirmationModalVisible = false;
-							}}
-						>
+						<button type="button" class="btn btn-primary" on:click={() => { isConfirmationModalVisible = false; }}>
 							Cancelar
 						</button>
 					</div>
@@ -200,10 +187,12 @@
 
 	.delete-btn {
 		background-color: #e74c3c;
+		position: relative;
+  		top: 4px;
 		color: white;
 		border: none;
-		border-radius: 2px;
-		padding: 8px 12px;
+		border-radius: 5px;
+		padding: 15px 20px;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 		transition: background-color 0.3s ease;
 	}
