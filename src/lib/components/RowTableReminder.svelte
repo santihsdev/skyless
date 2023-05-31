@@ -71,9 +71,10 @@
 		</div>
 	</td>
 	<td>
-		{hour}
+		{hour.slice(0, 5)}
+		{parseInt(hour.split(':')[0]) > 12 ? 'p.m.' : 'a.m.'}
 		<br />
-		<span class="badge badge-ghost badge-sm">{date}</span>
+		<span class="badge badge-ghost badge-sm">{new Date(date).toISOString().split('T')[0]}</span>
 	</td>
 	<td>{description}</td>
 	<th>
