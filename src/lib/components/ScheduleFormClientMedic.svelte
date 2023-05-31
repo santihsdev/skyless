@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { appointmentSchema } from '$lib/schemas/appointmentSchema';
 	import { storeReminders } from '$lib/stores/store';
+	import { updateReminders } from '$lib/ts/useUpdateReminder';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
 	export let id = '';
@@ -41,13 +42,6 @@
 		if (js.status == 200) {
 			restartValues();
 		}
-	};
-
-	const updateReminders = async (id_user: string) => {
-		const reminders: Reminder[] = await fetch(`/api/appoinments/get-all?key=${id_user}`).then(
-			(item) => item.json()
-		);
-		storeReminders.set(reminders);
 	};
 
 	const editAppointment = async (appointment: Reminder) => {
