@@ -46,7 +46,8 @@
 				placeholder="Search doctors"
 				autocomplete="off"
 				required
-				bind:value={nameDoctor} bind:this={inputElement}
+				bind:value={nameDoctor}
+				bind:this={inputElement}
 			/>
 
 			<button
