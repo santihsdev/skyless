@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { appointmentSchema } from '$lib/schemas/appointmentSchema';
+	import { storeReminders } from '$lib/stores/store';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
 	export let id = '';
@@ -41,6 +43,13 @@
 		}
 	};
 
+	const updateReminders = async (id_user: string) => {
+		const reminders: Reminder[] = await fetch(`/api/appoinments/get-all?key=${id_user}`).then(
+			(item) => item.json()
+		);
+		storeReminders.set(reminders);
+	};
+
 	const editAppointment = async (appointment: Reminder) => {
 		const js = await fetch('/api/appoinments/update', {
 			method: 'POST',
@@ -59,6 +68,7 @@
 				appointmentForm.id_appointment = parseInt(id);
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
 				await editAppointment(appointment);
+				await updateReminders(appointment.id_user);
 			} else {
 				appointmentForm.id_doctor = id;
 				appointmentForm.id_user = localStorage.getItem('key') ?? '';
