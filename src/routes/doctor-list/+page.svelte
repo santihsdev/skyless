@@ -15,6 +15,7 @@
 	let nameDoctor = '';
 	let isSearch = false;
 	let doctors: Doctor[] = [];
+	let inputElement;
 
 	const searchDoctor = async () => {
 		isSearch = nameDoctor === '' ? false : true;
@@ -22,6 +23,7 @@
 		const resp = await fetch(`/api/doctors/search?name=${nameDoctor}`);
 		const json: Doctor[] = await resp.json();
 		doctors = json;
+		inputElement.focus();
 	};
 </script>
 
@@ -44,7 +46,7 @@
 				placeholder="Search doctors"
 				autocomplete="off"
 				required
-				bind:value={nameDoctor}
+				bind:value={nameDoctor} bind:this={inputElement}
 			/>
 
 			<button
