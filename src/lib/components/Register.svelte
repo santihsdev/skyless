@@ -191,8 +191,8 @@
 				</div>
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div class="modal-action">
-					<button type="submit" class="btn">Register</button>
-					<label for="doctor" class="btn">Cancel</label>
+					<button type="submit" class="btn btn-primary">Register</button>
+					<label for="doctor" class="btn btn-primary">Cancel</label>
 				</div>
 			</div>
 		</form>

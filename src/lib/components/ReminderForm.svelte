@@ -87,7 +87,7 @@
 
 <div class="modal">
 	<div class="modal-box relative">
-		<label for={`my-modal-${id}`} class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+		<label for={`my-modal-${id}`} class="btn btn-primary btn-circle absolute right-2 top-2">✕</label>
 		<form on:submit={handleSubmit}>
 			<h1>{id}</h1>
 			<h1 class="title">Book Medical Appointment</h1>
@@ -118,7 +118,7 @@
 			<div class="modal-action">
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<!-- <label for="my-modal-3" class="btn" on:click={handleSubmit}>Submit</label> -->
-				<button type="submit" class="btn btn-sm right-2 top-2">
+				<button type="submit" class="btn btn-primary right-2 top-2">
 					{#if isEdit}
 						Edit
 					{:else}
@@ -187,9 +187,5 @@
 		resize: vertical;
 		background-color: white;
 	}
-	.btn {
-		margin-top: 0.5rem;
-		background-color: #79ccd1;
-		color: #fff;
-	}
+
 </style>

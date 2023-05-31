@@ -78,7 +78,7 @@
 	</td>
 	<td>{description}</td>
 	<th>
-		<button class="my-button" on:click={handleShowForm}>Edit</button>
+		<button class="btn btn-primary" on:click={handleShowForm}>Edit</button>
 		<button class="delete-btn" on:click={() => (isConfirmationModalVisible = true)}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -150,14 +150,7 @@
 						</div>
 					</div>
 					<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-						<button
-							type="button"
-							class="delete-btn"
-							on:click={() => {
-								deleteAppointment(id_appointment);
-								isConfirmationModalVisible = false;
-							}}
-						>
+						<button type="button" class="btn btn-primary" on:click={() => { deleteAppointment(id_appointment); isConfirmationModalVisible = false; }}>
 							Confirmar
 						</button>
 						<button
