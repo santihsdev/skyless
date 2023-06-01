@@ -1,69 +1,28 @@
 <script lang="ts">
 	import DoctorList from '$lib/components/DoctorList.svelte';
 	import type { Speciality } from '$lib/types/speciality';
-	import type { Doctor } from '$lib/types/doctor';
 	import { onMount } from 'svelte';
-	import SearchIcon from '../../icons/SearchIcon.svelte';
+	import Searcher from '$lib/components/Searcher.svelte';
+	import { isSearch } from '$lib/stores/store';
 
 	let specilities: Speciality[] = [];
+	let actualIsSearch: boolean;
+
 	onMount(async () => {
 		const resp = await fetch('/api/specialities');
 		const js: Speciality[] = await resp.json();
 		specilities = js;
 	});
 
-	let nameDoctor = '';
-	let isSearch = false;
-	let doctors: Doctor[] = [];
-	let inputElement;
-
-	const searchDoctor = async () => {
-		isSearch = nameDoctor === '' ? false : true;
-
-		const resp = await fetch(`/api/doctors/search?name=${nameDoctor}`);
-		const json: Doctor[] = await resp.json();
-		doctors = json;
-		inputElement.focus();
-	};
+	isSearch.subscribe((actual) => {
+			actualIsSearch = actual;
+	});
 </script>
 
-<div class="pt-20 pl-12 pr-20 sm:ml-64">
-	<form>
-		<label
-			for="default-search"
-			class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label
-		>
+<Searcher/>
 
-		<div class="relative">
-			<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-				<SearchIcon />
-			</div>
-
-			<input
-				type="search"
-				id="default-search"
-				class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-				placeholder="Search doctors"
-				autocomplete="off"
-				required
-				bind:value={nameDoctor}
-				bind:this={inputElement}
-			/>
-
-			<button
-				type="submit"
-				class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				on:click={searchDoctor}>Search</button
-			>
-		</div>
-	</form>
-</div>
 <div class="flex flex-col min-h-screen">
-	{#if isSearch}
-		<div>
-			<DoctorList isOpen={true} specialityName={`Results for: "${nameDoctor}"`} {doctors} />
-		</div>
-	{:else}
+	{#if !actualIsSearch}
 		{#each specilities as { id, name } (id)}
 			<DoctorList
 				isOpen={true}

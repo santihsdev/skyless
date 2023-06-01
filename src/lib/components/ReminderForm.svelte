@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { appointmentSchema } from '$lib/schemas/appointmentSchema';
-	import { storeReminders } from '$lib/stores/store';
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
@@ -82,7 +80,6 @@
 	};
 </script>
 
-<!-- <label for={`my-modal-${id}`} class="btn">schedule now</label> -->
 <input type="checkbox" id={`my-modal-${id}`} class="modal-toggle" bind:checked={isVisible} />
 
 <div class="modal">
@@ -117,8 +114,6 @@
 			</div>
 
 			<div class="modal-action">
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<!-- <label for="my-modal-3" class="btn" on:click={handleSubmit}>Submit</label> -->
 				<button type="submit" class="btn btn-primary right-2 top-2">
 					{#if isEdit}
 						Edit

@@ -8,3 +8,4 @@ export const masterToken = writable('token-default');
 export const menuOpen = writable(false);
 export const areYouDoctor = writable(false);
 export const storeReminders = writable<Reminder[]>([]);
+export const isSearch = writable(false);
