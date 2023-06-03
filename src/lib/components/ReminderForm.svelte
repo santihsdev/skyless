@@ -3,55 +3,16 @@
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
-	export let id = '';
+	import { appointmentForm, editAppointment, createAppoinment} from '$lib/ts/useReminderForm';
 
+	export let id = '';
 	let isBadDescription: boolean = false;
 	let messageDescription: string = '';
 	export let isVisible: boolean = false;
 	export let isEdit: boolean = false;
 
 	$: isBadDescription;
-
-	export let appointmentForm: Reminder = {
-		date: '',
-		hour: '',
-		description: '',
-		id_doctor: '',
-		id_user: ''
-	};
-
-	const restartValues = () => {
-		appointmentForm = {
-			date: '',
-			hour: '',
-			description: '',
-			id_doctor: '',
-			id_user: ''
-		};
-		isVisible = false;
-	};
-
-	const createAppoinment = async (appointment: Reminder) => {
-		const js = await fetch('/api/appoinments/create', {
-			method: 'POST',
-			body: JSON.stringify(appointment)
-		});
-
-		if (js.status == 200) {
-			restartValues();
-		}
-	};
-
-	const editAppointment = async (appointment: Reminder) => {
-		const js = await fetch('/api/appoinments/update', {
-			method: 'POST',
-			body: JSON.stringify(appointment)
-		});
-
-		if (js.status == 200) {
-			restartValues();
-		}
-	};
+	$: isVisible;
 
 	const handleSubmit = async () => {
 		try {
@@ -59,13 +20,13 @@
 			if (isEdit) {
 				appointmentForm.id_appointment = parseInt(id);
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
-				await editAppointment(appointment);
+				isVisible = await editAppointment(isVisible, appointment);
 				await updateReminders(appointment.id_user);
 			} else {
 				appointmentForm.id_doctor = id;
 				appointmentForm.id_user = localStorage.getItem('key') ?? '';
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
-				await createAppoinment(appointment);
+				isVisible = await createAppoinment(isVisible, appointment);
 			}
 		} catch (error) {
 			if (error instanceof ZodError) {
