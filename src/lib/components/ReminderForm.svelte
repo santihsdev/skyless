@@ -12,6 +12,7 @@
 	export let isEdit: boolean = false;
 
 	$: isBadDescription;
+	$: isVisible;
 
 	export let appointmentForm: Reminder = {
     	date: '',
@@ -28,12 +29,14 @@
 				appointmentForm.id_appointment = parseInt(id);
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
 				isVisible = await editAppointment(isVisible, appointment, appointmentForm);
+				console.log(isVisible);
 				await updateReminders(appointment.id_user);
 			} else {
 				appointmentForm.id_doctor = id;
 				appointmentForm.id_user = localStorage.getItem('key') ?? '';
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
 				isVisible = await createAppoinment(isVisible, appointment, appointmentForm);
+				console.log(isVisible);
 			}
 		} catch (error) {
 			if (error instanceof ZodError) {

@@ -8,7 +8,7 @@ import type { Reminder } from '$lib/types/reminder';
 //     id_user: ''
 // };
 
-const restartValues = (isVisible : boolean, appointmentForm: Reminder) => {
+const restartValues = (appointmentForm: Reminder) => {
     appointmentForm = {
         date: '',
         hour: '',
@@ -16,7 +16,8 @@ const restartValues = (isVisible : boolean, appointmentForm: Reminder) => {
         id_doctor: '',
         id_user: ''
     };
-    isVisible = false;
+    
+    return false;
 };
 
 export const createAppoinment = async (isVisible: boolean, appointment: Reminder, appointmentForm: Reminder) => {
@@ -26,7 +27,7 @@ export const createAppoinment = async (isVisible: boolean, appointment: Reminder
     });
 
     if (js.status == 200) {
-        restartValues(isVisible,appointmentForm);
+        isVisible = restartValues(appointmentForm);
     }
     return isVisible;
 };
@@ -38,7 +39,7 @@ export const editAppointment = async (isVisible: boolean, appointment: Reminder,
     });
 
     if (js.status == 200) {
-        restartValues(isVisible, appointmentForm);
+        isVisible = restartValues(appointmentForm);
     }
     return isVisible;
 };
