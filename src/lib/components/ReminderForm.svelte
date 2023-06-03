@@ -3,7 +3,7 @@
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
 	import type { Reminder } from '$lib/types/reminder';
 	import { ZodError } from 'zod';
-	import { appointmentForm, editAppointment, createAppoinment} from '$lib/ts/useReminderForm';
+	import { editAppointment, createAppoinment} from '$lib/ts/useReminderForm';
 
 	export let id = '';
 	let isBadDescription: boolean = false;
@@ -12,7 +12,14 @@
 	export let isEdit: boolean = false;
 
 	$: isBadDescription;
-	$: isVisible;
+
+	export let appointmentForm: Reminder = {
+    	date: '',
+    	hour: '',
+    	description: '',
+    	id_doctor: '',
+    	id_user: ''
+	};
 
 	const handleSubmit = async () => {
 		try {
@@ -20,13 +27,13 @@
 			if (isEdit) {
 				appointmentForm.id_appointment = parseInt(id);
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
-				isVisible = await editAppointment(isVisible, appointment);
+				isVisible = await editAppointment(isVisible, appointment, appointmentForm);
 				await updateReminders(appointment.id_user);
 			} else {
 				appointmentForm.id_doctor = id;
 				appointmentForm.id_user = localStorage.getItem('key') ?? '';
 				const appointment: Reminder = appointmentSchema.parse(appointmentForm);
-				isVisible = await createAppoinment(isVisible, appointment);
+				isVisible = await createAppoinment(isVisible, appointment, appointmentForm);
 			}
 		} catch (error) {
 			if (error instanceof ZodError) {

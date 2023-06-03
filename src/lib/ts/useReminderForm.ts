@@ -1,12 +1,12 @@
 import type { Reminder } from '$lib/types/reminder'; 
 
-export let appointmentForm: Reminder = {
-    date: '',
-    hour: '',
-    description: '',
-    id_doctor: '',
-    id_user: ''
-};
+// export let appointmentForm: Reminder = {
+//     date: '',
+//     hour: '',
+//     description: '',
+//     id_doctor: '',
+//     id_user: ''
+// };
 
 const restartValues = (isVisible : boolean, appointmentForm: Reminder) => {
     appointmentForm = {
@@ -19,7 +19,7 @@ const restartValues = (isVisible : boolean, appointmentForm: Reminder) => {
     isVisible = false;
 };
 
-export const createAppoinment = async (isVisible: boolean, appointment: Reminder) => {
+export const createAppoinment = async (isVisible: boolean, appointment: Reminder, appointmentForm: Reminder) => {
     const js = await fetch('/api/appoinments/create', {
         method: 'POST',
         body: JSON.stringify(appointment)
@@ -31,7 +31,7 @@ export const createAppoinment = async (isVisible: boolean, appointment: Reminder
     return isVisible;
 };
 
-export const editAppointment = async (isVisible: boolean, appointment: Reminder) => {
+export const editAppointment = async (isVisible: boolean, appointment: Reminder, appointmentForm: Reminder) => {
     const js = await fetch('/api/appoinments/update', {
         method: 'POST',
         body: JSON.stringify(appointment)
