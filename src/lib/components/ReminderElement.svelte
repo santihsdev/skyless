@@ -14,8 +14,8 @@
 	let isDone = false;
 	let nameDoctor = '';
 	let speciality = '';
-	let formatedDate = new Date(date).toISOString().split('T')[0];
-	let formatedHour = hour.slice(0, 5);
+	let formatedDate: string;
+	let formatedHour: string;
 	let isVisibleForm = false;
 	let isConfirmationModalVisible = false;
   
@@ -46,7 +46,13 @@
 	  nameDoctor = name;
 	  speciality = doctorSpeciality;
 	});
+  
+	$: {
+	  formatedDate = new Date(date).toISOString().split('T')[0];
+	  formatedHour = hour.slice(0, 5);
+	}
   </script>
+  
   
   
 <tr class="hover" class:line-through={isDone}>
