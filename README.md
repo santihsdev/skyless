@@ -35,7 +35,7 @@ Tools:
 
 - [@MariaReneH](https://github.com/MariaReneH)
 
-- [@cris](https://github.com/cristopherUwU)
+- [@cris]()
 
 ## Features
 
