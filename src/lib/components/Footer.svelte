@@ -1,7 +1,7 @@
 <script>
 	import FacebookIcon from '../../icons/FacebookIcon.svelte';
 	import InstagramIcon from '../../icons/InstagramIcon.svelte';
-	import PhoneIcon from '../../icons/PhoneIcon.svelte';
+	import PhoneIcon from '../icons/PhoneIcon.svelte';
 	import TwitterIcon from '../../icons/TwitterIcon.svelte';
 	import WhatsappIcon from '../../icons/WhatsappIcon.svelte';
 	import MessageIcon from '../../icons/MessageIcon.svelte';

@@ -3,7 +3,7 @@ import Footer from '../../../src/lib/components/Footer.svelte';
 import MedicalCheckLogo from '$lib/images/MedicalCheckLogo.png';
 import FacebookIcon from '../../../src/icons/FacebookIcon.svelte';
 import InstagramIcon from '../../../src/icons/InstagramIcon.svelte';
-import PhoneIcon from '../../../src/icons/PhoneIcon.svelte';
+import PhoneIcon from '../../../src/lib/icons/PhoneIcon.svelte';
 import TwitterIcon from '../../../src/icons/TwitterIcon.svelte';
 import WhatsappIcon from '../../../src/icons/WhatsappIcon.svelte';
 import MessageIcon from '../../../src/icons/MessageIcon.svelte';
