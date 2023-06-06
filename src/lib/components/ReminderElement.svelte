@@ -1,60 +1,56 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ReminderForm from './ReminderForm.svelte';
-	import avatar from '$lib/images/default.png';
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
-  
+	import avatar from '$lib/images/default.png';
+
 	export let idDoctor = '0';
 	export let idUser = '0';
 	export let date = '01-01-00';
 	export let hour = '00:00';
 	export let description = 'Default';
 	export let id_appointment = 0;
-  
+
 	let isDone = false;
 	let nameDoctor = '';
 	let speciality = '';
-	let formatedDate: string;
-	let formatedHour: string;
+	let formattedDate: string;
+	let formattedHour: string;
 	let isVisibleForm = false;
 	let isConfirmationModalVisible = false;
-  
-	async function deleteAppointment(id_appointment: number) {
-	  const response = await fetch('/api/appoinments/delete', {
-		method: 'POST',
-		headers: {
-		  'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-		  id_appointment
-		})
-	  });
-  
-	  updateReminders(idUser);
-  
-	  return response.json();
+
+	async function deleteAppointment(idAppointment: number) {
+		const response = await fetch('/api/appointments/delete', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ id_appointment: idAppointment })
+		});
+
+		updateReminders(idUser);
+
+		return response.json();
 	}
-  
+
 	function handleShowForm() {
-	  console.log('click');
-	  isVisibleForm = !isVisibleForm;
+		console.log('click');
+		isVisibleForm = !isVisibleForm;
 	}
-  
+
 	onMount(async () => {
-	  const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
-	  const { name, speciality: doctorSpeciality } = await resp.json();
-	  nameDoctor = name;
-	  speciality = doctorSpeciality;
+		const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
+		const { name, speciality: doctorSpeciality } = await resp.json();
+		nameDoctor = name;
+		speciality = doctorSpeciality;
 	});
-  
+
 	$: {
-	  formatedDate = new Date(date).toISOString().split('T')[0];
-	  formatedHour = hour.slice(0, 5);
+		formattedDate = new Date(date).toISOString().split('T')[0];
+		formattedHour = hour.slice(0, 5);
 	}
-  </script>
-  
-  
-  
+</script>
+
 <tr class="hover" class:line-through={isDone}>
 	<th>
 		<label>
