@@ -14,10 +14,8 @@
 
 	let nameDoctor: string;
 	let speciality: string;
-
 	let formatedDate: string = new Date(date).toISOString().split('T')[0];
 	let formatedHour = hour.slice(0, 5);
-
 	let isVisibleForm: boolean;
 	let isConfirmationModalVisible = false;
 	$: isVisibleForm;
