@@ -3,52 +3,52 @@
 	import ReminderForm from './ReminderForm.svelte';
 	import avatar from '$lib/images/default.png';
 	import { updateReminders } from '$lib/ts/useUpdateReminder';
-
-	let isDone: boolean = false;
-	export let idDoctor: string = '0';
-	export let idUser: string = '0';
-	export let date: string = '01-01-00';
-	export let hour: string = '00:00';
-	export let description: string = 'Default';
-	export let id_appointment: number = 0;
-
-	let nameDoctor: string;
-	let speciality: string;
-	let formatedDate: string = new Date(date).toISOString().split('T')[0];
+  
+	export let idDoctor = '0';
+	export let idUser = '0';
+	export let date = '01-01-00';
+	export let hour = '00:00';
+	export let description = 'Default';
+	export let id_appointment = 0;
+  
+	let isDone = false;
+	let nameDoctor = '';
+	let speciality = '';
+	let formatedDate = new Date(date).toISOString().split('T')[0];
 	let formatedHour = hour.slice(0, 5);
-	let isVisibleForm: boolean;
+	let isVisibleForm = false;
 	let isConfirmationModalVisible = false;
-	$: isVisibleForm;
-
+  
 	async function deleteAppointment(id_appointment: number) {
-		const response = await fetch('/api/appoinments/delete', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				id_appointment: id_appointment
-			})
-		});
-
-		updateReminders(idUser);
-
-		return response.json();
+	  const response = await fetch('/api/appoinments/delete', {
+		method: 'POST',
+		headers: {
+		  'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+		  id_appointment
+		})
+	  });
+  
+	  updateReminders(idUser);
+  
+	  return response.json();
 	}
-
-	const handleShowForm = () => {
-		console.log('click');
-		isVisibleForm = !isVisibleForm;
-	};
-
+  
+	function handleShowForm() {
+	  console.log('click');
+	  isVisibleForm = !isVisibleForm;
+	}
+  
 	onMount(async () => {
-		const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
-		const js = await resp.json();
-		nameDoctor = js.name;
-		speciality = js.speciality;
+	  const resp = await fetch(`/api/doctors/read?id=${idDoctor}`);
+	  const { name, speciality: doctorSpeciality } = await resp.json();
+	  nameDoctor = name;
+	  speciality = doctorSpeciality;
 	});
-</script>
-
+  </script>
+  
+  
 <tr class="hover" class:line-through={isDone}>
 	<th>
 		<label>
