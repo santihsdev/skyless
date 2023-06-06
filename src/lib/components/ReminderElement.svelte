@@ -174,42 +174,41 @@
 		</div>
 	{/if}
 </tr>
-
-<style>
-	.my-button {
-		background-color: #79ccd1;
-		border-radius: 8px;
-		border: none;
-		color: white;
-		font-size: 1rem;
-		padding: 10px 20px;
-		height: 42px;
-		width: 90px;
-		text-align: center;
-		cursor: pointer;
-	}
-
-	.my-button:hover {
-		background-color: #2ca2d8;
-	}
-	.my-button:focus {
-		outline: none;
-		box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.6);
-	}
-
-	.delete-btn {
-		background-color: #e74c3c;
-		position: relative;
-		top: 4px;
-		color: white;
-		border: none;
-		border-radius: 5px;
-		padding: 15px 20px;
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-		transition: background-color 0.3s ease;
-	}
-
-	.delete-btn:hover {
-		background-color: #c0392b;
-	}
-</style>
+.my-button {
+	background-color: #79ccd1;
+	border-radius: 8px;
+	border: none;
+	color: white;
+	font-size: 1rem;
+	padding: 10px 20px;
+	height: 42px;
+	width: 90px;
+	text-align: center;
+	cursor: pointer;
+  }
+  
+  .my-button:hover {
+	background-color: #2ca2d8;
+  }
+  
+  .my-button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.6);
+  }
+  
+  .delete-btn {
+	background-color: #e74c3c;
+	position: relative;
+	top: 4px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 15px 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+	background-color: #c0392b;
+  }
+  
