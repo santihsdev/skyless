@@ -1,10 +1,10 @@
 import { cleanup, render, screen } from '@testing-library/svelte';
 import DoctorProfile from '$lib/components/DoctorProfile.svelte';
-import BagIcon from '../../../src/icons/BagIcon.svelte';
-import CardIcon from '../../../src/icons/CardIcon.svelte';
-import ClockIcon from '../../../src/icons/ClockIcon.svelte';
-import HatIcon from '../../../src/icons/HatIcon.svelte';
-import PhoneIcon from '../../../src/icons/PhoneIcon.svelte';
+import BagIcon from '../../../src/lib/icons/BagIcon.svelte';
+import CardIcon from '../../../src/lib/icons/CardIcon.svelte';
+import ClockIcon from '../../../src/lib/icons/ClockIcon.svelte';
+import HatIcon from '../../../src/lib/icons/HatIcon.svelte';
+import PhoneIcon from '../../../src/lib/icons/PhoneIcon.svelte';
 
 describe('Text components', () => {
 	afterEach(() => {
